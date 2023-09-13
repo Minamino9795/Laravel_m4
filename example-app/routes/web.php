@@ -1,19 +1,21 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
-use PSpell\Dictionary;
+use Illuminate\Routing\Router;
+
+// use PSpell\Dictionary;
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
+// Route bài 1
 Route::get('/login', function () {
     
     return view('bai1.login');
 });
-
-
 
 Route::post('/login', function (Request $request) {
 $username=$request->username;
@@ -73,3 +75,31 @@ Route::post('/dictionary',function(Request $request){
 });
 
 
+// Router bài routing- thực hành xem giờ time_zone
+Route::get('/time',function(){
+return view('routing_timezone.index');
+});
+Route::post('/time',function(Request $request){
+if(isset($request->location)){
+    $location=$request->location;
+    $todayDate= Carbon::now($location)->format('Y-m-d h:i:s');
+    echo "thời gian hiện tại của $location : " . $todayDate;
+}
+});
+
+
+// truyền tham số bắt buộc
+// Route::get('/users/{id}/post/{postId}',function($id,$postId){
+// echo 'user id '.$id*$postId;
+// });
+// Route::get('/users/{id?}/post/{postId?}',function($id=null,$postId=null){
+// if(isset($id,$postId)){
+//     $result= $id + $postId;
+//     echo $result;
+    
+// }
+// if($id==null||$postId==null){
+//     echo "khog ton tai";
+// }
+
+// });
