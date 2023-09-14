@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CreateController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
@@ -13,48 +14,48 @@ use Illuminate\Routing\Router;
 
 // Route bài 1
 Route::get('/login', function () {
-    
+
     return view('bai1.login');
 });
 
 Route::post('/login', function (Request $request) {
-$username=$request->username;
-$password=$request->password;
-if ($username =='admin'
-&& $password == 'admin123'){
-    return view( 'bai1.welcome');
-}
+    $username = $request->username;
+    $password = $request->password;
+    if (
+        $username == 'admin'
+        && $password == 'admin123'
+    ) {
+        return view('bai1.welcome');
+    }
     return view('bai1.login_error');
-
 });
 
 // Route bài 2
 Route::get('/calculator', function () {
-    
+
     return view('bai2.calculator');
 });
-Route::post('/calculator',function(Request $request){
-$description=$request->description;
-$price=$request->price;
-$percent=$request->percent;
-$amount=$price*$percent*0.1;
-return view('bai2.show',compact(['amount', 'description', 'price', 'percent']));
-
+Route::post('/calculator', function (Request $request) {
+    $description = $request->description;
+    $price = $request->price;
+    $percent = $request->percent;
+    $amount = $price * $percent * 0.1;
+    return view('bai2.show', compact(['amount', 'description', 'price', 'percent']));
 });
 
 // Route bài 3
 Route::get('/dictionary', function () {
-    
+
     return view('bai3.dictionary');
 });
-Route::post('/dictionary',function(Request $request){
+Route::post('/dictionary', function (Request $request) {
     $dictionary = array(
         "apple" => "quả táo",
         "banana" => "quả chuối",
         "cat" => "con mèo",
         "dog" => "con chó"
     );
-    
+
     $inputText = $request->text;
     foreach ($dictionary as $english => $vietnamese) {
         if ($english == $inputText) {
@@ -63,28 +64,27 @@ Route::post('/dictionary',function(Request $request){
         }
         if ($vietnamese == $inputText) {
             echo "Từ bạn tìm kiếm có nghĩa tiếng Anh là " . '"' . $english . '"';
-         
-            break; 
+
+            break;
         }
-       
     }
-   
-    if ($english !== $inputText && $vietnamese !== $inputText ){
+
+    if ($english !== $inputText && $vietnamese !== $inputText) {
         echo "Từ bạn tìm kiếm không có trong từ điển, hãy cập nhật tôi để thêm từ này vào ";
     }
 });
 
 
 // Router bài routing- thực hành xem giờ time_zone
-Route::get('/time',function(){
-return view('routing_timezone.index');
+Route::get('/time', function () {
+    return view('routing_timezone.index');
 });
-Route::post('/time',function(Request $request){
-if(isset($request->location)){
-    $location=$request->location;
-    $todayDate= Carbon::now($location)->format('Y-m-d h:i:s');
-    echo "thời gian hiện tại của $location : " . $todayDate;
-}
+Route::post('/time', function (Request $request) {
+    if (isset($request->location)) {
+        $location = $request->location;
+        $todayDate = Carbon::now($location)->format('Y-m-d h:i:s');
+        echo "thời gian hiện tại của $location : " . $todayDate;
+    }
 });
 
 
@@ -103,3 +103,16 @@ if(isset($request->location)){
 // }
 
 // });
+
+
+//Route Task Management
+Route::prefix('tasks')->group( function(){
+Route::get('/', function(){
+return view('Manager.index');
+});
+
+Route::get('/user', [CreateController::class, 'getCreate'])->name('user');
+// Route::get('/user/store', [CreateController::class, 'getCreate'])->name('user.store');
+});
+
+
