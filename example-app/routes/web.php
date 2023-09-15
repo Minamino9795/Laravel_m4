@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
+use App\Http\Controllers\UserController;
 
 // use PSpell\Dictionary;
 
@@ -114,5 +115,22 @@ return view('Manager.index');
 Route::get('/user', [CreateController::class, 'getCreate'])->name('user');
 // Route::get('/user/store', [CreateController::class, 'getCreate'])->name('user.store');
 });
+
+
+
+
+
+// Route liệt kê
+Route::get('/user',[UserController::class,'index'])->name('user.index');
+//Route thêm mới
+Route::get('/user/create',[UserController::class,'create'])->name('user.create');
+Route::post('/user/create',[UserController::class,'store'])->name('user.store');
+Route::put('/user/{id}',[UserController::class,'update'])->name('user.update');
+
+//Ruote sửa
+Route::get('/user/edit/{id}',[UserController::class,'edit'])->name('user.edit');
+// xoa dữ liệu
+Route::delete('user/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
+Route::get('user/show/{id}', [UserController::class, 'show'])->name('user.show');
 
 
