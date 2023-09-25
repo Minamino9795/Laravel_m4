@@ -76,7 +76,8 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $products = Product::find($id);
+        return view('products.show', compact('products'));
     }
 
     /**
@@ -115,7 +116,7 @@ class ProductController extends Controller
             $products->image = str_replace('public/', 'storage/', $path);
         }
         $products->save();
-        $request->session()->flash('successMessage1', 'CẬP NHẬT THÀNH CÔNG!');
+        $request->session()->flash('successMessage1', 'Update successful');
 
         return redirect()->route('product.index');
     }

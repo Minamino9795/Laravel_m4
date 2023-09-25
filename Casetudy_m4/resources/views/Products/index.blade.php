@@ -87,7 +87,7 @@
                             <td>{{ $product->slug }}</td>
                             <td>{{ $product->price }}.000 VNĐ</td>
                             <td>{{ $product->decscription }}</td>
-                            <td>{{ $product->quantity }} Cái</td>
+                            <td>{{ $product->quantity }} Đôi</td>
                             <td>{{ $product->status }}</td>
                             <td>{{ $product->category->name }}</td>
                             <td><img width="100" height="90" src="{{ asset($product->image) }}" alt="Image">
