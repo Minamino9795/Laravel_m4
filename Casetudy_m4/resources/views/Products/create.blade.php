@@ -1,3 +1,4 @@
+
 <h2>THÊM SẢN PHẨM:</h2>
 
 <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
@@ -5,26 +6,46 @@
     <div>
         Name: <br>
         <input type="text" name="name"> <br>
+        @error('name')
+        <div style="color: red">{{ $message }}</div>
+    @enderror
     </div>
     <div>
         Slug: <br>
-        <input type="number" name="slug"> <br>
+        <input type="text" name="slug"> <br>
+        @error('slug')
+        <div style="color: red">{{ $message }}</div>
+    @enderror
     </div>
     <div>
         Price:<br>
-        <input type="number" name="price">VND<br>
+        <input type="number" name="price"><br>
+        @error('price')
+        <div style="color: red">{{ $message }}</div>
+        @enderror
     </div>
     <div>
         Decscription: <br>
         <textarea class="form-control" rows="4" name="decscription" id="decscription" placeholder="Enter description"></textarea><br>
+        @error('decscription')
+        <div style="color: red">{{ $message }}</div>
+        @enderror
     </div>
     <div>
         Quantity:<br>
-        <input type="number" name="quantity">Set<br>
+        <input type="number" name="quantity"><br>
+        @error('quantity')
+        <div style="color: red">{{ $message }}</div>
+        @enderror
     </div>
     <div>
         Status:<br>
-        <input type="number" name="status"><br>
+        <select name="status" class="form-control">
+           
+                <option value="0">In stock</option>
+                <option value="1">Out stock</option>
+        </select><br>
+        
     </div>
     <div>
         Category:<br>
@@ -37,9 +58,13 @@
     <div>
         Image:<br>
         <input type="file" name="image"> <br>
-        <span class="file-name-display">No file selected</span>
+        <span class="file-name-display"></span>
         <br>
+        @error('image')
+        <div style="color: red">{{ $message }}</div>
+        @enderror
     </div>
 
     <input type="submit" value="Add">
 </form>
+

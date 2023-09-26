@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -13,13 +14,20 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Product::with('category')->paginate(3);
+        $query = Product::with('category');
+
         if (isset($request->search)) {
             $search = $request->search;
-            $products = Product::where('name', 'like', "%$search%")
-                ->paginate(3);
+            $query->where('name', 'like', "%$search%");
         }
+
+        // Sắp xếp theo trường created_at giảm dần
+        $products = $query->orderBy('id', 'asc')->paginate(3);
+        // Đảo ngược thứ tự của danh sách để bản ghi mới nhất hiển thị đầu danh sách
+
+
         // dd($products);
+
         $successMessage = '';
         if ($request->session()->has('successMessage')) {
             $successMessage = $request->session()->get('successMessage');
@@ -28,7 +36,6 @@ class ProductController extends Controller
         } elseif ($request->session()->has('successMessage2')) {
             $successMessage = $request->session()->get('successMessage2');
         }
-
         return view('Products.index', compact('products', 'successMessage'));
     }
 
@@ -44,7 +51,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         $products = new Product();
         $products->name = $request->name;
@@ -65,7 +72,9 @@ class ProductController extends Controller
             $path = str_replace('public/', '', $path);
             $products->image = $path;
         }
+
         $products->save();
+
         $request->session()->flash('successMessage', 'More success');
 
         return redirect()->route('product.index');
@@ -93,7 +102,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ProductRequest $request, string $id)
     {
         $products = Product::find($id);
         $products->name = $request->name;
@@ -106,6 +115,7 @@ class ProductController extends Controller
         $fieldName = 'image';
 
         if ($request->hasFile($fieldName)) {
+            // Người dùng đã tải lên một tệp mới, thực hiện việc xử lý tệp mới
             $fullFileNameOrigin = $request->file($fieldName)->getClientOriginalName();
             $fileNameOrigin = pathinfo($fullFileNameOrigin, PATHINFO_FILENAME);
             $extension = $request->file($fieldName)->getClientOriginalExtension();
@@ -114,8 +124,13 @@ class ProductController extends Controller
 
             // Cập nhật đường dẫn ảnh mới vào sản phẩm
             $products->image = str_replace('public/', 'storage/', $path);
+        } else {
+            // Người dùng không tải lên tệp mới, giữ nguyên đường dẫn ảnh cũ
+            
         }
+
         $products->save();
+
         $request->session()->flash('successMessage1', 'Update successful');
 
         return redirect()->route('product.index');

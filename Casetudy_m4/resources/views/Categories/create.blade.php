@@ -5,19 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>thêm loại hàng</title>
+    <title>Add new</title>
 </head>
 
 <body>
-    <h2>Thêm mới loại hàng</h2>
+    <h2>ADD NEW CATEGORIE TYPES</h2>
     <form action="{{ route('category.store') }}" method="POST">
         @csrf
         <div class="mb-3">
-            <label>Tên loại hàng:</label>
-            <input type="text" name="name" class="form-control" placeholder="Nhập tên loại hàng">
+            <label>Category name:</label>
+            <input type="text" name="name" class="form-control" placeholder="Enter category name">
+            @error('name')
+            <div style="color: red">{{ $message }}</div>
+        @enderror
         </div>
         <input type="submit" value="Submit">
     </form>
 </body>
 
 </html>
+<style>
+    
+</style>

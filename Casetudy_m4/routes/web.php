@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.master');
 });
 Route::resource('category', CategoryController::class);
-Route::resource('product',ProductController::class);
+Route::resource('product', ProductController::class);
