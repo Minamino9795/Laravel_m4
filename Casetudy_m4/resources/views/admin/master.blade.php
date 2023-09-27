@@ -1,109 +1,72 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Modernize an Admin Panel Category Bootstrap Responsive Web Template | Tables :: w3layouts</title>
-    <!-- Meta Tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <meta name="keywords"
-        content="Modernize Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
-    <script>
-        addEventListener("load", function() {
-            setTimeout(hideURLbar, 0);
-        }, false);
-
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
-    <!-- //Meta Tags -->
-
-    <!-- Style-sheets -->
-    <!-- Bootstrap Css -->
-    <link href="{{asset('assets/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
-    <!-- Bootstrap Css -->
-    <!-- Common Css -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-    <!--// Common Css -->
-    <!-- Nav Css -->
-    <link rel="stylesheet" href="{{asset('assets/css/style4.css')}}">
-    <!--// Nav Css -->
-    <!-- Fontawesome Css -->
-    <link href="{{asset('assets/css/fontawesome-all.css')}}" rel="stylesheet">
-    <!--// Fontawesome Css -->
-    <!--// Style-sheets -->
-
-    <!--web-fonts-->
-    <link href="//fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-    <!--//web-fonts-->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('assets/img/apple-icon.png')}}">
+    <link rel="icon" type="image/png" href="{{asset('assets/img/favicon.png')}}">
+    <title>
+        Material Dashboard 2 by Creative Tim
+    </title>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <!-- Nucleo Icons -->
+    <link href="{{asset('assets/css/nucleo-icons.css')}}" rel="stylesheet" />
+    <link href="{{asset('assets/css/nucleo-svg.css')}}" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- CSS Files -->
+    <link id="pagestyle" href="{{asset('assets/css/material-dashboard.css?v=3.1.0')}}" rel="stylesheet" />
+    <!-- Nepcha Analytics (nepcha.com) -->
+    <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 </head>
 
-<body>
-    <div class="wrapper">
-        <!-- Sidebar Holder -->
-        @include('admin.includes.sidebar')
+<body class="g-sidenav-show  bg-gray-200">
+   @include('admin.includes.sidebar')
+   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+       <!-- Navbar -->
+       @include('admin.includes.header')
+       <!-- End Navbar -->
+       <div class="container-fluid py-4">
+           @yield('content')
+           @yield('edit')
+           @yield('show')
+           @yield('create')
+           {{-- bảng categories --}}
+           @yield('category_edit')
+           @yield('category_show')
+           @yield('category_create')
+           @yield('category_index')
+          
 
-        <!-- Page Content Holder -->
-        <div id="content">
-            <!-- top-bar -->
-            @include('admin.includes.header')
-            <!--// top-bar -->
-
-            <!-- main-heading -->
-            <h2 class="main-title-w3layouts mb-2 text-center">Tables</h2>
-            <!--// main-heading -->
-
-            <!-- Tables content -->
-           
-
-            <!--// Tables content -->
-
-            <!-- Copyright -->
-            @include('admin.includes.footer')
-            <!--// Copyright -->
+ 
+      @include('admin.includes.footer') 
         </div>
-    </div>
+    </main>
 
-
-    <!-- Required common Js -->
-    <script src='js/jquery-2.2.3.min.js'></script>
-    <!-- //Required common Js -->
-
-    <!-- Sidebar-nav Js -->
+    <!--   Core JS Files   -->
+    <script src="{{asset('assets/js/core/popper.min.js')}}"></script>
+    <script src="{{asset('assets/js/core/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
     <script>
-        $(document).ready(function() {
-            $('#sidebarCollapse').on('click', function() {
-                $('#sidebar').toggleClass('active');
-            });
-        });
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
     </script>
-    <!--// Sidebar-nav Js -->
-
-    <!-- dropdown nav -->
-    <script>
-        $(document).ready(function() {
-            $(".dropdown").hover(
-                function() {
-                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
-                    $(this).toggleClass('open');
-                },
-                function() {
-                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
-                    $(this).toggleClass('open');
-                }
-            );
-        });
-    </script>
-    <!-- //dropdown nav -->
-
-    <!-- Js for bootstrap working-->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- //Js for bootstrap working -->
-
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="{{asset('assets/js/material-dashboard.min.js?v=3.1.0')}}"></script>
 </body>
 
 </html>

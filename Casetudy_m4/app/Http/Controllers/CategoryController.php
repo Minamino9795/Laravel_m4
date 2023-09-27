@@ -13,14 +13,16 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-        $categories = Category::paginate(3);
+        $categories = Category::orderBy('id', 'desc')->paginate(3);
 
         // Kiểm tra nếu có tìm kiếm
         if (isset($request->search)) {
             $search = $request->search;
             $categories = Category::where('name', 'like', "%$search%")
+                ->orderBy('id', 'desc')
                 ->paginate(3);
         }
+
 
         // Kiểm tra session để lấy thông báo thành công
         $successMessage = '';

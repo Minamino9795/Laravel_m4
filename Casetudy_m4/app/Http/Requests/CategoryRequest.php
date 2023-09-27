@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CategoryRequest extends FormRequest
 {
@@ -21,14 +22,17 @@ class CategoryRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'name'=>['required','unique:categories']
+        $categoryID = $this->category;
+        $rules = [
+            'name' => ['required', Rule::unique('categories')->ignore($categoryID)],
         ];
+        return $rules;
     }
     public function messages()
     {
-        return[
-            'name.required'=>'Can not be empty!',
+        return [
+            'name.required' => 'Can not be empty!',
+            'name.unique' => 'Name is duplicated !',
         ];
     }
 }

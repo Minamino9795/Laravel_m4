@@ -1,4 +1,5 @@
-
+@extends('admin.master')
+@section('show')
     <!DOCTYPE html>
     <html lang="en">
 
@@ -14,52 +15,47 @@
     </head>
 
     <body>
-        <table class="table table-hover" border="1">
-            <thead style="background: linear-gradient(to bottom, #a208c8 , #0768f1)">
-                <tr>
-                    <th style="color: white">Product ID</th>
-                    <th style="color: white">Name</th>
-                    <th style="color: white">Slug</th>
-                    <th style="color: white">Price</th>
-                    <th style="color: white">Decscription</th>
-                    <th style="color: white">Quantity</th>
-                    <th style="color: white">Status</th>
-                    <th style="color: white">Category ID</th>
-                    <th style="color: white">Image</th>
-
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td>{{ $products->id }}</td>
-                    <td>{{ $products->name }}</td>
-                    <td>{{ $products->slug }}</td>
-                    <td>{{ $products->price }}.000 VNĐ</td>
-                    <td>{{ $products->decscription }}</td>
-                    <td>{{ $products->quantity }} Đôi</td>
-                    @if ($products->status == 0)
-                        <td><span class="badge bg-success">
-                                <i class="fas fa-check-circle"></i> In stock
-                            </span></td>
-                    @else
-                        <td> <span class="badge bg-danger">
-                                <i class="fas fa-times-circle"></i> Out stock
-                            </span></td>
-                    @endif
-                    <td>{{ $products->category->name }}</td>
-                    <td><img width="100" height="90" src="{{ asset($products->image) }}" alt="Image">
-                    </td>
-
-                </tr>
-
-
-
-            </tbody>
-        </table>
-
-
+        <div class="container">
+            <table class="table table-hover">
+                <thead style="background: linear-gradient(to bottom, #a208c8 , #0768f1)">
+                    <tr>
+                        <th style="color: white">Product ID</th>
+                        <th style="color: white">Name</th>
+                        <th style="color: white">Slug</th>
+                        <th style="color: white">Price</th>
+                        <th style="color: white">Description</th>
+                        <th style="color: white">Quantity</th>
+                        <th style="color: white">Status</th>
+                        <th style="color: white">Category ID</th>
+                        <th style="color: white">Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ $products->id }}</td>
+                        <td>{{ $products->name }}</td>
+                        <td>{{ $products->slug }}</td>
+                        <td>{{ $products->price }}.000 VNĐ</td>
+                        <td>{!! $products->decscription !!}</td>
+                        <td>{{ $products->quantity }} Đôi</td>
+                        <td>
+                            @if ($products->status == 0)
+                                <span class="badge bg-success">
+                                    <i class="fas fa-check-circle"></i> In stock
+                                </span>
+                            @else
+                                <span class="badge bg-danger">
+                                    <i class="fas fa-times-circle"></i> Out stock
+                                </span>
+                            @endif
+                        </td>
+                        <td>{{ $products->category->name }}</td>
+                        <td><img width="100" height="90" src="{{ asset($products->image) }}" alt="Image"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </body>
 
     </html>
-
+@endsection

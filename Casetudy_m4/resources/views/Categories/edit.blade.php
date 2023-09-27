@@ -1,3 +1,5 @@
+@extends('admin.master')
+@section('category_edit')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,3 +29,5 @@
 </body>
 
 </html>
+
+@endsection

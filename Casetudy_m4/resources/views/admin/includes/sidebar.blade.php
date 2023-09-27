@@ -1,114 +1,102 @@
-<nav id="sidebar">
-    <div class="sidebar-header">
-        <h1>
-            <a href="index.html">Modernize</a>
-        </h1>
-        <span>M</span>
-    </div>
-    <div class="profile-bg"></div>
-    <ul class="list-unstyled components">
-        <li>
-            <a href="index.html">
-                <i class="fas fa-th-large"></i>
-                Dashboard
+<style>
+    .bg-gradient-primary {
+  background-image: linear-gradient(to right, #2951d5, #9238ae);
+} 
+  </style>
+
+
+<aside
+        class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark"
+        id="sidenav-main">
+        <div class="sidenav-header">
+            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+                aria-hidden="true" id="iconSidenav"></i>
+            <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard "
+                target="_blank">
+                <img src="{{ asset('assets/img/logo-ct.png') }}" class="navbar-brand-img h-100" alt="main_logo">
+                <span class="ms-1 font-weight-bold text-white">Material Dashboard 2</span>
             </a>
-        </li>
-        <li class="active">
-            <a href="{{asset('assets/#homeSubmenu')}}" data-toggle="collapse" aria-expanded="false">
-                <i class="fas fa-laptop"></i>
-                Components
-                <i class="fas fa-angle-down fa-pull-right"></i>
-            </a>
-            <ul class="collapse list-unstyled" id="homeSubmenu">
-                <li>
-                    <a href="cards.html">Cards</a>
+        </div>
+        <hr class="horizontal light mt-0 mb-2">
+        <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="../pages/dashboard.html">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">dashboard</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Dashboard</span>
+                    </a>
                 </li>
-                <li>
-                    <a href="carousels.html">Carousels</a>
+                <li class="nav-item">
+                    <a class="nav-link text-white active bg-gradient-primary" href="{{ route('category.index') }}">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">table_view</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Categories</span>
+                    </a>
                 </li>
-                <li>
-                    <a href="forms.html">Forms</a>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ route('product.index') }}">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">receipt_long</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Products</span>
+                    </a>
                 </li>
-                <li>
-                    <a href="modals.html">Modals</a>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="../pages/virtual-reality.html">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">view_in_ar</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Virtual Reality</span>
+                    </a>
                 </li>
-                <li>
-                    <a href="tables.html">Tables</a>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="../pages/rtl.html">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+                        </div>
+                        <span class="nav-link-text ms-1">RTL</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="../pages/notifications.html">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">notifications</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Notifications</span>
+                    </a>
+                </li>
+                <li class="nav-item mt-3">
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages
+                    </h6>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="../pages/profile.html">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">person</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="../pages/sign-in.html">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">login</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Sign In</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="../pages/sign-up.html">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">assignment</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Sign Up</span>
+                    </a>
                 </li>
             </ul>
-        </li>
-        <li>
-            <a href="charts.html">
-                <i class="fas fa-chart-pie"></i>
-                Charts
-            </a>
-        </li>
-        <li>
-            <a href="grids.html">
-                <i class="fas fa-th"></i>
-                Grid Layouts
-            </a>
-        </li>
-        <li>
-            <a href="{{asset('assets/#pageSubmenu1')}}" data-toggle="collapse" aria-expanded="false">
-                <i class="far fa-file"></i>
-                Pages
-                <i class="fas fa-angle-down fa-pull-right"></i>
-            </a>
-            <ul class="collapse list-unstyled" id="pageSubmenu1">
-                <li>
-                    <a href="404.html">404</a>
-                </li>
-                <li>
-                    <a href="500.html">500</a>
-                </li>
-                <li>
-                    <a href="blank.html">Blank</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="mailbox.html">
-                <i class="far fa-envelope"></i>
-                Mailbox
-                <span class="badge badge-secondary float-md-right bg-danger">5 New</span>
-            </a>
-        </li>
-        <li>
-            <a href="widgets.html">
-                <i class="far fa-window-restore"></i>
-                Widgets
-            </a>
-        </li>
-        <li>
-            <a href="pricing.html">
-                <i class="fas fa-table"></i>
-                Pricing Tables
-            </a>
-        </li>
-        <li>
-            <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false">
-                <i class="fas fa-users"></i>
-                User
-                <i class="fas fa-angle-down fa-pull-right"></i>
-            </a>
-            <ul class="collapse list-unstyled" id="pageSubmenu3">
-                <li>
-                    <a href="login.html">Login</a>
-                </li>
-                <li>
-                    <a href="register.html">Register</a>
-                </li>
-                <li>
-                    <a href="forgot.html">Forgot password</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="maps.html">
-                <i class="far fa-map"></i>
-                Maps
-            </a>
-        </li>
-    </ul>
-</nav>
+        </div>
+       
+    </aside>

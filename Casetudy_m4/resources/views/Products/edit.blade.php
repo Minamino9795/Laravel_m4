@@ -1,3 +1,5 @@
+@extends('admin.master')
+@section('edit')
 <!DOCTYPE html>
 <html>
 
@@ -80,3 +82,4 @@
 </body>
 
 </html>
+@endsection

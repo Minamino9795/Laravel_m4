@@ -1,3 +1,6 @@
+
+@extends('admin.master')
+@section('Category_create')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,3 +30,4 @@
 <style>
     
 </style>
+@endsection

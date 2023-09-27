@@ -22,8 +22,8 @@ class ProductController extends Controller
         }
 
         // Sắp xếp theo trường created_at giảm dần
-        $products = $query->orderBy('id', 'asc')->paginate(3);
-        // Đảo ngược thứ tự của danh sách để bản ghi mới nhất hiển thị đầu danh sách
+        $products = $query->orderBy('id', 'desc')->paginate(3);
+      
 
 
         // dd($products);

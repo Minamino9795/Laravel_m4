@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Models\Product;
+use Illuminate\Validation\Rule;
 
 class ProductRequest extends FormRequest
 {
@@ -22,8 +23,9 @@ class ProductRequest extends FormRequest
      */
     public function rules(): array
     {
+        $productId = $this->product;
         $rules = [
-            'name' => ['required'],
+            'name' => ['required', Rule::unique('products')->ignore($productId)],
             'slug' => ['required'],
             'price' => ['required'],
             'decscription' => ['required'],
@@ -47,6 +49,7 @@ class ProductRequest extends FormRequest
     {
         return [
             'name.required' => 'Can not be empty!',
+            'name.unique' => 'Name is duplicated !',
             'slug.required' => 'Can not be empty!',
             'price.required' => 'Can not be empty!',
             'decscription.required' => 'Can not be empty!',
