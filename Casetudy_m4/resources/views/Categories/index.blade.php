@@ -123,10 +123,9 @@
                                                     <button class="btn btn-primary" title="Edit"><i
                                                             class="fas fa-edit"></i></button>
                                                 </a> |
-                                                <form action="{{ route('category.destroy', $category->id) }}"
-                                                    method="POST">
+                                                <form action="{{ route('category.softdeletes', $category->id) }}" method="POST">
+                                                    @method('PUT')
                                                     @csrf
-                                                    @method('DELETE')
                                                     <button class="btn btn-danger" title="Delete"
                                                         onclick="return confirm('Are you sure you want to delete?')"><i
                                                             class="fas fa-trash-alt"></i></button>

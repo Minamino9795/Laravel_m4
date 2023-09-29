@@ -42,6 +42,9 @@
            @yield('category_show')
            @yield('category_create')
            @yield('category_index')
+
+           @yield('trash')
+
           
 
  

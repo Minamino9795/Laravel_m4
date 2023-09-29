@@ -1,6 +1,6 @@
 
 @extends('admin.master')
-@section('Category_create')
+@section('category_create')
 <!DOCTYPE html>
 <html lang="en">
 
