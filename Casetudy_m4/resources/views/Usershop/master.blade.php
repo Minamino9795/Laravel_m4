@@ -49,7 +49,7 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item position-relative active" style="height: 430px;">
-                            <img class="position-absolute w-100 h-100" src="{{asset('Usershop/img/carousel-1.jpg')}}" style="object-fit: cover;">
+                            <img class="position-absolute w-100 h-100" src="{{asset('Usershop/img/dh4.webp')}}" style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Men Fashion</h1>
@@ -59,7 +59,7 @@
                             </div>
                         </div>
                         <div class="carousel-item position-relative" style="height: 430px;">
-                            <img class="position-absolute w-100 h-100" src="{{asset('Usershop/img/carousel-2.jpg')}}" style="object-fit: cover;">
+                            <img class="position-absolute w-100 h-100" src="{{asset('Usershop/img/cau-tao-dong-ho-co.jpg')}}" style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Women Fashion</h1>
@@ -69,7 +69,7 @@
                             </div>
                         </div>
                         <div class="carousel-item position-relative" style="height: 430px;">
-                            <img class="position-absolute w-100 h-100" src="{{asset('Usershop/img/carousel-3.jpg')}}" style="object-fit: cover;">
+                            <img class="position-absolute w-100 h-100" src="{{asset('Usershop/img/dh23.jpg')}}" style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Kids Fashion</h1>
@@ -83,7 +83,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="product-offer mb-30" style="height: 200px;">
-                    <img class="img-fluid" src="{{asset('Usershop/img/offer-1.jpg')}}" alt="">
+                    <img class="img-fluid" src="{{asset('Usershop/img/dh13.jpg')}}" alt="">
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase">Save 20%</h6>
                         <h3 class="text-white mb-3">Special Offer</h3>
@@ -91,7 +91,7 @@
                     </div>
                 </div>
                 <div class="product-offer mb-30" style="height: 200px;">
-                    <img class="img-fluid" src="{{asset('Usershop/img/offer-2.jpg')}}" alt="">
+                    <img class="img-fluid" src="{{asset('Usershop/img/dh12.jpg')}}" alt="">
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase">Save 20%</h6>
                         <h3 class="text-white mb-3">Special Offer</h3>
@@ -161,7 +161,7 @@
         <div class="row px-xl-5">
             <div class="col-md-6">
                 <div class="product-offer mb-30" style="height: 300px;">
-                    <img class="img-fluid" src="{{asset('Usershop/img/offer-1.jpg')}}" alt="">
+                    <img class="img-fluid" src="{{asset('Usershop/img/dh24.webp')}}" alt="">
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase">Save 20%</h6>
                         <h3 class="text-white mb-3">Special Offer</h3>
@@ -171,7 +171,7 @@
             </div>
             <div class="col-md-6">
                 <div class="product-offer mb-30" style="height: 300px;">
-                    <img class="img-fluid" src="{{asset('Usershop/img/offer-2.jpg')}}" alt="">
+                    <img class="img-fluid" src="{{asset('Usershop/img/dh25.webp')}}" alt="">
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase">Save 20%</h6>
                         <h3 class="text-white mb-3">Special Offer</h3>
@@ -195,28 +195,28 @@
             <div class="col">
                 <div class="owl-carousel vendor-carousel">
                     <div class="bg-light p-4">
-                        <img src="{{asset('Usershop/img/vendor-1.jpg')}}" alt="">
+                        <img src="{{asset('Usershop/img/dh32.jpg')}}" alt="">
                     </div>
                     <div class="bg-light p-4">
-                        <img src="{{asset('Usershop/img/vendor-2.jpg')}}" alt="">
+                        <img src="{{asset('Usershop/img/dh44.webp')}}" alt="">
                     </div>
                     <div class="bg-light p-4">
-                        <img src="{{asset('Usershop/img/vendor-3.jpg')}}" alt="">
+                        <img src="{{asset('Usershop/img/dh42.jpg')}}" alt="">
                     </div>
                     <div class="bg-light p-4">
-                        <img src="{{asset('Usershop/img/vendor-4.jpg')}}" alt="">
+                        <img src="{{asset('Usershop/img/dh43.jpg')}}" alt="">
                     </div>
                     <div class="bg-light p-4">
-                        <img src="{{asset('Usershop/img/vendor-5.jpg')}}" alt="">
+                        <img src="{{asset('Usershop/img/dh45.jpg')}}" alt="">
                     </div>
                     <div class="bg-light p-4">
-                        <img src="{{asset('Usershop/img/vendor-6.jpg')}}" alt="">
+                        <img src="{{asset('Usershop/img/dh46.jpg')}}" alt="">
                     </div>
                     <div class="bg-light p-4">
-                        <img src="{{asset('Usershop/img/vendor-7.jpg')}}" alt="">
+                        <img src="{{asset('Usershop/img/dh48.jpg')}}" alt="">
                     </div>
                     <div class="bg-light p-4">
-                        <img src="{{asset('Usershop/img/vendor-8.jpg')}}" alt="">
+                        <img src="{{asset('Usershop/img/dh47.jpg')}}" alt="">
                     </div>
                 </div>
             </div>

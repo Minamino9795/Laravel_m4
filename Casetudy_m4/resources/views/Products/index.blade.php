@@ -103,8 +103,8 @@
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{ $product->name }}</td>
                                     <td>{{ $product->slug }}</td>
-                                    <td>{{ $product->price }}.000 VNĐ</td>
-                                    <td>{{ $product->quantity }} Đôi</td>
+                                    <td>{{ $product->price }} VNĐ</td>
+                                    <td>{{ $product->quantity }} cái</td>
                                     @if ($product->status == 0)
                                         <td><span class="badge bg-success">
                                                 <i class="fas fa-check-circle"></i> In stock

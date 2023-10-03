@@ -51,8 +51,8 @@
     <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
         <div class="col-lg-4">
             <a href="" class="text-decoration-none">
-                <span class="h1 text-uppercase text-primary bg-dark px-2">Multi</span>
-                <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Shop</span>
+                <span class="h1 text-uppercase text-primary bg-dark px-2">Sweet</span>
+                <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Time 97</span>
             </a>
         </div>
         <div class="col-lg-4 col-6 text-left">
@@ -69,8 +69,8 @@
             </form>
         </div>
         <div class="col-lg-4 col-6 text-right">
-            <p class="m-0">Customer Service</p>
-            <h5 class="m-0">+012 345 6789</h5>
+            <p class="m-0">Mr.Dương Đình Nghĩa</p>
+            <h5 class="m-0">(+84) 37 4180 497</h5>
         </div>
     </div>
 </div>

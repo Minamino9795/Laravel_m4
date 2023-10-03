@@ -8,7 +8,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
             <div class="product-item bg-light">
                 <div class="product-img position-relative overflow-hidden">
-                    <img class="img-fluid w-100" src="{{ asset($product->image) }}" alt="">
+                    <img class="img-fluid w-100" width="100" height="90" src="{{ asset($product->image) }}" alt="Image">
                     
                     <div class="product-action">
                         <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
@@ -29,7 +29,7 @@
                             </span></td> --}}
                     @endif</h6>
                     <div class="d-flex align-items-center justify-content-center mt-2">
-                        <h5>{{ $product->price }}</h5>
+                        <h5>{{ $product->price }} VNĐ</h5>
                       
                         <h6 class="text-muted ml-2"><del></del></h6>
 
