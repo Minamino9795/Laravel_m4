@@ -9,26 +9,26 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="{{asset('Usershop/img/favicon.ico')}}" rel="icon">
+    <link href="{{ asset('Usershop/img/favicon.ico') }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="{{asset('Usershop/lib/animate/animate.min.css')}}" rel="stylesheet">
-    <link href="{{asset('Usershop/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('Usershop/lib/animate/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('Usershop/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{asset('Usershop/css/style.css')}}" rel="stylesheet">
+    <link href="{{ asset('Usershop/css/style.css') }}" rel="stylesheet">
 </head>
 
 <body>
     <!-- Topbar Start -->
-   @include('Usershop.includes.header')
+    @include('Usershop.includes.header')
     <!-- Topbar End -->
 
 
@@ -49,32 +49,43 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item position-relative active" style="height: 430px;">
-                            <img class="position-absolute w-100 h-100" src="{{asset('Usershop/img/dh4.webp')}}" style="object-fit: cover;">
+                            <img class="position-absolute w-100 h-100" src="{{ asset('Usershop/img/dh4.webp') }}"
+                                style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Men Fashion</h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Men's
+                                        watch</h1>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet
+                                        lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
+                                        href="#">Shop Now</a>
                                 </div>
                             </div>
                         </div>
                         <div class="carousel-item position-relative" style="height: 430px;">
-                            <img class="position-absolute w-100 h-100" src="{{asset('Usershop/img/cau-tao-dong-ho-co.jpg')}}" style="object-fit: cover;">
+                            <img class="position-absolute w-100 h-100"
+                                src="{{ asset('Usershop/img/cau-tao-dong-ho-co.jpg') }}" style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Women Fashion</h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">
+                                        Women's watches</h1>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet
+                                        lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
+                                        href="#">Shop Now</a>
                                 </div>
                             </div>
                         </div>
                         <div class="carousel-item position-relative" style="height: 430px;">
-                            <img class="position-absolute w-100 h-100" src="{{asset('Usershop/img/dh23.jpg')}}" style="object-fit: cover;">
+                            <img class="position-absolute w-100 h-100" src="{{ asset('Usershop/img/dh23.jpg') }}"
+                                style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Kids Fashion</h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Top watch</h1>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet
+                                        lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
+                                        href="#">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +94,7 @@
             </div>
             <div class="col-lg-4">
                 <div class="product-offer mb-30" style="height: 200px;">
-                    <img class="img-fluid" src="{{asset('Usershop/img/dh13.jpg')}}" alt="">
+                    <img class="img-fluid" src="{{ asset('Usershop/img/dh13.jpg') }}" alt="">
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase">Save 20%</h6>
                         <h3 class="text-white mb-3">Special Offer</h3>
@@ -91,7 +102,7 @@
                     </div>
                 </div>
                 <div class="product-offer mb-30" style="height: 200px;">
-                    <img class="img-fluid" src="{{asset('Usershop/img/dh12.jpg')}}" alt="">
+                    <img class="img-fluid" src="{{ asset('Usershop/img/dh12.jpg') }}" alt="">
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase">Save 20%</h6>
                         <h3 class="text-white mb-3">Special Offer</h3>
@@ -137,22 +148,22 @@
 
 
     <!-- Categories Start -->
-    
+
 
     @yield('content')
 
-   
 
-   
-            
+
+
+
     <!-- Categories End -->
 
 
     <!-- Products Start -->
-   
+
 
     </div>
-           
+
     <!-- Products End -->
 
 
@@ -161,7 +172,7 @@
         <div class="row px-xl-5">
             <div class="col-md-6">
                 <div class="product-offer mb-30" style="height: 300px;">
-                    <img class="img-fluid" src="{{asset('Usershop/img/dh24.webp')}}" alt="">
+                    <img class="img-fluid" src="{{ asset('Usershop/img/dh24.webp') }}" alt="">
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase">Save 20%</h6>
                         <h3 class="text-white mb-3">Special Offer</h3>
@@ -171,7 +182,7 @@
             </div>
             <div class="col-md-6">
                 <div class="product-offer mb-30" style="height: 300px;">
-                    <img class="img-fluid" src="{{asset('Usershop/img/dh25.webp')}}" alt="">
+                    <img class="img-fluid" src="{{ asset('Usershop/img/dh25.webp') }}" alt="">
                     <div class="offer-text">
                         <h6 class="text-white text-uppercase">Save 20%</h6>
                         <h3 class="text-white mb-3">Special Offer</h3>
@@ -185,7 +196,7 @@
 
 
     <!-- Products Start -->
-   
+
     <!-- Products End -->
 
 
@@ -195,28 +206,28 @@
             <div class="col">
                 <div class="owl-carousel vendor-carousel">
                     <div class="bg-light p-4">
-                        <img src="{{asset('Usershop/img/dh32.jpg')}}" alt="">
+                        <img src="{{ asset('Usershop/img/dh32.jpg') }}" alt="">
                     </div>
                     <div class="bg-light p-4">
-                        <img src="{{asset('Usershop/img/dh44.webp')}}" alt="">
+                        <img src="{{ asset('Usershop/img/dh44.webp') }}" alt="">
                     </div>
                     <div class="bg-light p-4">
-                        <img src="{{asset('Usershop/img/dh42.jpg')}}" alt="">
+                        <img src="{{ asset('Usershop/img/dh42.jpg') }}" alt="">
                     </div>
                     <div class="bg-light p-4">
-                        <img src="{{asset('Usershop/img/dh43.jpg')}}" alt="">
+                        <img src="{{ asset('Usershop/img/dh43.jpg') }}" alt="">
                     </div>
                     <div class="bg-light p-4">
-                        <img src="{{asset('Usershop/img/dh45.jpg')}}" alt="">
+                        <img src="{{ asset('Usershop/img/dh45.jpg') }}" alt="">
                     </div>
                     <div class="bg-light p-4">
-                        <img src="{{asset('Usershop/img/dh46.jpg')}}" alt="">
+                        <img src="{{ asset('Usershop/img/dh46.jpg') }}" alt="">
                     </div>
                     <div class="bg-light p-4">
-                        <img src="{{asset('Usershop/img/dh48.jpg')}}" alt="">
+                        <img src="{{ asset('Usershop/img/dh48.jpg') }}" alt="">
                     </div>
                     <div class="bg-light p-4">
-                        <img src="{{asset('Usershop/img/dh47.jpg')}}" alt="">
+                        <img src="{{ asset('Usershop/img/dh47.jpg') }}" alt="">
                     </div>
                 </div>
             </div>
@@ -226,7 +237,7 @@
 
 
     <!-- Footer Start -->
- @include('Usershop.includes.footer')
+    @include('Usershop.includes.footer')
     <!-- Footer End -->
 
 
@@ -237,15 +248,15 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="{{asset('Usershop/lib/easing/easing.min.js')}}"></script>
-    <script src="{{asset('Usershop/lib/owlcarousel/owl.carousel.min.js')}}"></script>
+    <script src="{{ asset('Usershop/lib/easing/easing.min.js') }}"></script>
+    <script src="{{ asset('Usershop/lib/owlcarousel/owl.carousel.min.js') }}"></script>
 
     <!-- Contact Javascript File -->
-    <script src="{{asset('Usershop/mail/jqBootstrapValidation.min.js')}}"></script>
-    <script src="{{asset('Usershop/mail/contact.js')}}"></script>
+    <script src="{{ asset('Usershop/mail/jqBootstrapValidation.min.js') }}"></script>
+    <script src="{{ asset('Usershop/mail/contact.js') }}"></script>
 
     <!-- Template Javascript -->
-    <script src="{{asset('Usershop/js/main.js')}}"></script>
+    <script src="{{ asset('Usershop/js/main.js') }}"></script>
 </body>
 
 </html>

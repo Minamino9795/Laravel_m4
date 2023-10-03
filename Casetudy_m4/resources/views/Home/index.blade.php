@@ -23,13 +23,13 @@
                         <td><span class="badge badge-success">
                                 <i class="fas fa-check-circle"></i> In stock
                             </span></td>
-                    {{-- @else
+                    @else
                         <td> <span class="badge badge-danger">
                                 <i class="fas fa-times-circle"></i> Out stock
-                            </span></td> --}}
+                            </span></td>
                     @endif</h6>
                     <div class="d-flex align-items-center justify-content-center mt-2">
-                        <h5>{{ $product->price }} VNĐ</h5>
+                        <h5>{{number_format($product->price)}} VNĐ</h5>
                       
                         <h6 class="text-muted ml-2"><del></del></h6>
 

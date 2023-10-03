@@ -35,7 +35,7 @@
                         <td>{{ $products->id }}</td>
                         <td>{{ $products->name }}</td>
                         <td>{{ $products->slug }}</td>
-                        <td>{{ $products->price }}.000 VNĐ</td>
+                        <td>{{number_format($products->price)}} VNĐ</td>
                         <td>{!! $products->decscription !!}</td>
                         <td>{{ $products->quantity }} Đôi</td>
                         <td>

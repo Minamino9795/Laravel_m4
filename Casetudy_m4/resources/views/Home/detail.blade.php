@@ -29,12 +29,12 @@
                             <small class="fas fa-star-half-alt"></small>
                             <small class="far fa-star"></small>
                         </div>
-                        <small class="pt-1">(99 Đánh giá)</small>
+                        <small class="pt-1">(99 Evaluate)</small>
                     </div>
-                    <h3 class="font-weight-semi-bold mb-4">{{ number_format($products->price) }} vnd</h3>
-                    <p class="font-family"><h5>Mô tả:</h5>{!! $products->decscription !!}</p>
-                    <p class="font-family"><h5>Loại sản phẩm:</h5>{{ $products->category->name }}</p>
-                    <p class="font-family"><h5>Tình trạng:</h5> 
+                    <h3 class="font-weight-semi-bold mb-4">{{ number_format($products->price) }} VNĐ</h3>
+                    <p class="font-family"><h5>Description:</h5>{!! $products->decscription !!}</p>
+                    <p class="font-family"><h5>Category name:</h5>{{ $products->category->name }}</p>
+                    <p class="font-family"><h5>Status:</h5> 
                         @if ($products->status == 0)
                             <span class="badge badge-success">
                                 <i class="fas fa-check-circle"></i> In stock
