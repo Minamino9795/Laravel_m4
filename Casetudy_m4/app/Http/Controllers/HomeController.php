@@ -22,6 +22,13 @@ class HomeController extends Controller
     public function detail(string $id)
     {
         $products = Product::find($id);
-        return view('Home.detail', compact('products'));
+        // Lấy các sản phẩm có liên quan (ví dụ: cùng danh mục)
+        $relatedProducts = Product::where('category_id', $products->category_id)
+            ->where('id', '<>', $products->id) // Loại bỏ sản phẩm hiện tại
+            ->inRandomOrder() // Sắp xếp ngẫu nhiên
+            ->limit(4) // Giới hạn số lượng sản phẩm hiển thị
+            ->get();
+
+        return view('Home.detail', compact('products', 'relatedProducts'));
     }
 }

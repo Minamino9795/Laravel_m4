@@ -32,18 +32,21 @@
                         <small class="pt-1">(99 Evaluate)</small>
                     </div>
                     <h3 class="font-weight-semi-bold mb-4">{{ number_format($products->price) }} VNĐ</h3>
-                    <p class="font-family"><h5>Description:</h5>{!! $products->decscription !!}</p>
-                    <p class="font-family"><h5>Category name:</h5>{{ $products->category->name }}</p>
-                    <p class="font-family"><h5>Status:</h5> 
-                        @if ($products->status == 0)
-                            <span class="badge badge-success">
-                                <i class="fas fa-check-circle"></i> In stock
-                            </span>
-                        @else
-                            <span class="badge badge-danger">
-                                <i class="fas fa-times-circle"></i> Out stock
-                            </span>
-                        @endif
+                    <p class="font-family">
+                    <h5>Description:</h5>{!! $products->decscription !!}</p>
+                    <p class="font-family">
+                    <h5>Category name:</h5>{{ $products->category->name }}</p>
+                    <p class="font-family">
+                    <h5>Status:</h5>
+                    @if ($products->status == 0)
+                        <span class="badge badge-success">
+                            <i class="fas fa-check-circle"></i> In stock
+                        </span>
+                    @else
+                        <span class="badge badge-danger">
+                            <i class="fas fa-times-circle"></i> Out stock
+                        </span>
+                    @endif
                     </p>
 
 
@@ -86,5 +89,25 @@
             </div>
         </div>
 
+    </div>
+    <!-- Related Products Section -->
+    <div class="container-fluid mt-5">
+        <h2>Related Products</h2>
+        <div class="row">
+            @foreach ($relatedProducts as $relatedProduct)
+                <div class="col-lg-3 mb-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset($relatedProduct->image) }}" alt="Product Image">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $relatedProduct->name }}</h5>
+                            <p class="card-text">{{ number_format($relatedProduct->price) }} VNĐ</p>
+                            <a href="{{ route('shop.detail', $relatedProduct->id) }}" class="btn btn-primary">View
+                                Product</a>
+                                
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
 @endsection
