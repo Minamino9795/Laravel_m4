@@ -55,9 +55,8 @@ class CategoryController extends Controller
     {
         $categories = new Category();
         $categories->name = $request->name;
-        $categories->save();
-        $request->session()->flash('successMessage', 'More success');
-        return redirect()->route('category.index');
+        $categories->save();      
+        return redirect()->route('category.index')->with('successMessage', 'More success');
     }
 
     /**
@@ -86,8 +85,7 @@ class CategoryController extends Controller
         $categories = Category::find($id);
         $categories->name = $request->name;
         $categories->save();
-        $request->session()->flash('successMessage1', 'Update successful');
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with('successMessage1', 'Update successful');
     }
 
     /**
@@ -98,7 +96,7 @@ class CategoryController extends Controller
         
         $category = Category::onlyTrashed()->findOrFail($id);
         $category->forceDelete();
-        return redirect()->back()->with('status', 'Xóa danh mục thành công');
+        return redirect()->back()->with('successMessage2', 'Deleted successfully');
     }
     public  function softdeletes($id)
     {
@@ -106,7 +104,9 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->deleted_at = date("Y-m-d h:i:s");
         $category->save();
-        return redirect()->route('category.index');
+        // $request->session()->flash('successMessage2', 'Deleted successfully');
+
+        return redirect()->route('category.index')->with('successMessage2', 'Deleted successfully');
     }
     public  function trash()
     {
@@ -118,6 +118,7 @@ class CategoryController extends Controller
     {      
         $categories = Category::withTrashed()->where('id', $id);
         $categories->restore();
-        return redirect()->route('category.trash');
+        return redirect()->route('category.trash')->with('successMessage3', 'Restore successfully');
+        // return redirect()->route('category.trash');
     }
 }

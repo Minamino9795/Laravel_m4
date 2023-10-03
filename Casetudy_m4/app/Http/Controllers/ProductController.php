@@ -23,7 +23,7 @@ class ProductController extends Controller
 
         // Sắp xếp theo trường created_at giảm dần
         $products = $query->orderBy('id', 'desc')->paginate(3);
-      
+
 
 
         // dd($products);
@@ -35,6 +35,8 @@ class ProductController extends Controller
             $successMessage = $request->session()->get('successMessage1');
         } elseif ($request->session()->has('successMessage2')) {
             $successMessage = $request->session()->get('successMessage2');
+        } elseif ($request->session()->has('successMessage3')) {
+            $successMessage = $request->session()->get('successMessage3');
         }
         return view('Products.index', compact('products', 'successMessage'));
     }
@@ -72,12 +74,8 @@ class ProductController extends Controller
             $path = str_replace('public/', '', $path);
             $products->image = $path;
         }
-
         $products->save();
-
-        $request->session()->flash('successMessage', 'More success');
-
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('successMessage', 'More success');
     }
 
     /**
@@ -126,23 +124,40 @@ class ProductController extends Controller
             $products->image = str_replace('public/', 'storage/', $path);
         } else {
             // Người dùng không tải lên tệp mới, giữ nguyên đường dẫn ảnh cũ
-            
+
         }
-
         $products->save();
-
-        $request->session()->flash('successMessage1', 'Update successful');
-
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('successMessage1', 'Update successful');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Request $request, string $id)
+    public function destroy(string $id)
     {
-        $products = Product::destroy($id);
-        $request->session()->flash('successMessage2', 'Deleted successfully');
-        return redirect()->route('product.index');
+        $products = Product::onlyTrashed()->findOrFail($id);
+        $products->forceDelete();
+
+        return redirect()->back()->with('successMessage2', 'Deleted successfully');
+    }
+    public  function softdeletes($id)
+    {
+        date_default_timezone_set("Asia/Ho_Chi_Minh");
+        $products = Product::findOrFail($id);
+        $products->deleted_at = date("Y-m-d h:i:s");
+        $products->save();
+        return redirect()->route('product.index')->with('successMessage2', 'Deleted successfully');
+    }
+    public  function trash()
+    {
+        $products = Product::onlyTrashed()->get();
+        $param = ['products' => $products];
+        return view('products.trash', $param);
+    }
+    public function restoredelete($id)
+    {
+        $products = Product::withTrashed()->where('id', $id);
+        $products->restore();
+        return redirect()->route('product.trash')->with('successMessage3', 'Restore successfully');
     }
 }

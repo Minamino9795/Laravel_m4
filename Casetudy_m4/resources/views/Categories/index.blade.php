@@ -67,6 +67,7 @@
                         iconColor: '#00a65a',
                     });
                 </script>
+                  
             @endif
 
             <div>

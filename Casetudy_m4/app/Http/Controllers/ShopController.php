@@ -31,7 +31,7 @@ class ShopController extends Controller
         $customer->password = bcrypt($request->psw);
         if ($request->psw == $request->psw_repeat) {
             $customer->save();
-            return redirect()->route('shop.index');
+            return redirect()->route('shop.login');
         } else {
             return redirect()->route('shop.index')->with($notification);
         }

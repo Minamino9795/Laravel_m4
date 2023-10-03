@@ -60,6 +60,7 @@
                     iconColor: '#00a65a',
                 });
             </script>
+            
         @endif
     </head>
 
@@ -125,12 +126,11 @@
                                             <a href="{{ route('product.edit', $product->id) }}">
                                                 <button class="btn btn-primary" title="Edit"><i
                                                         class="fas fa-edit"></i></button></a>|
-                                            <form action="{{ route('product.destroy', $product->id) }}" method="POST">
+                                            <form action="{{ route('product.softdeletes', $product->id) }}" method="POST">
+                                                @method('PUT')
                                                 @csrf
-                                                @method('DELETE')
-                                                <a onclick=" return confirm('Are you sure you want to delete?'); "
-                                                    href="{{ route('product.destroy', $product->id) }}">
-                                                    <button class="btn btn-danger" title="Delete"><i
+                                                <button class="btn btn-danger" title="Delete"
+                                                        onclick="return confirm('Are you sure you want to delete?')"><i
                                                             class="fas fa-trash-alt"></i></button>
                                             </form>
                                         </div>

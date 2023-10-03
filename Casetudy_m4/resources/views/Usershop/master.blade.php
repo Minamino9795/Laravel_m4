@@ -138,15 +138,20 @@
 
     <!-- Categories Start -->
     
+
     @yield('content')
 
-    </div>
+   
+
+   
             
     <!-- Categories End -->
 
 
     <!-- Products Start -->
+   
 
+    </div>
            
     <!-- Products End -->
 
