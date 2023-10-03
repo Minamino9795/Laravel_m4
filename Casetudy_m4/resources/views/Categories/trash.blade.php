@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('trash')
+@section('content')
 <h2 class="offset-4">CATEGORY CATALOG TRASH</h2>
     <div class="table-responsive pt-3">
         <table class="table table-info" style="width:100%">

@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('edit')
+@section('content')
 <!DOCTYPE html>
 <html>
 
@@ -33,7 +33,7 @@
         </div>
         <div>
             <label for="description">Decscription:</label><br>
-            <textarea name="decscription" id="decscription">{{ $products->decscription }}</textarea><br>
+            <textarea name="decscription" id="decscription">{!! $products->decscription !!}</textarea><br>
             @error('decscription')
                 <div style="color: red">{{ $message }}</div>
             @enderror

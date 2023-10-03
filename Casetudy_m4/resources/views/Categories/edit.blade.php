@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('category_edit')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 

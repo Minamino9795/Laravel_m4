@@ -137,13 +137,16 @@
 
 
     <!-- Categories Start -->
-   @include('Usershop.includes.categorystart')
+    
+    @yield('content')
+
+    </div>
             
     <!-- Categories End -->
 
 
     <!-- Products Start -->
-    @include('Usershop.includes.productstart')
+
            
     <!-- Products End -->
 

@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('create')
+@section('content')
     <h2>ADD NEW PRODUCT TYPES:</h2>
 
     <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">

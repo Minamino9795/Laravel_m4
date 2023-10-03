@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +31,10 @@ Route::resource('category', CategoryController::class);
 Route::resource('product', ProductController::class);
 
 //xóa mềm
+
+//đăng ký tài khoản==============
+Route::get('shop/register', [ShopController::class, 'register'])->name('shop.register');
+Route::post('shop/checkRegister', [ShopController::class, 'checkRegister'])->name('shop.checkRegister');
+// đăng nhập tài khoản==============
+Route::post('/login', [ShopController::class, 'checklogin'])->name('shop.checklogin');
+Route::get('/login', [ShopController::class, 'login'])->name('shop.login');
