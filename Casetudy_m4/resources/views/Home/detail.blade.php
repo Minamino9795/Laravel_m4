@@ -35,7 +35,7 @@
                     <p class="font-family">
                     <h5>Description:</h5>{!! $products->decscription !!}</p>
                     <p class="font-family">
-                    <h5>Category name:</h5>{{ $products->category->name }}</p>
+                    <h5>Category:</h5>{{ $products->category->name }}</p>
                     <p class="font-family">
                     <h5>Status:</h5>
                     @if ($products->status == 0)
@@ -65,8 +65,8 @@
                                 </button>
                             </div>
                         </div>
-                        {{-- <a href="{{ route('shop.store', $products->id) }}" id="{{ $product->id }}"
-                            class="btn btn-danger mt-20">Thêm vào giỏ hàng</a> --}}
+                        <a href="{{ route('shop.addtocart', $products->id) }}" id="{{ $products->id }}"
+                          class="btn btn-danger mt-20">Thêm vào giỏ hàng</a>
                     </div>
                     <div class="d-flex pt-2">
                         <strong class="text-dark mr-2">Share on:</strong>

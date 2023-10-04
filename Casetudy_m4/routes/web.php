@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CategorylistController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
@@ -28,6 +30,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('shop.index');
 Route::get('/home/detail/{id}', [HomeController::class, 'detail'])->name('shop.detail');
 
+// Route::get('/c', [CategorylistController::class, 'index'])->name('list.index');
 
 
 
@@ -60,3 +63,9 @@ Route::post('shop/checkRegister', [ShopController::class, 'checkRegister'])->nam
 // đăng nhập tài khoản==============
 Route::post('/login', [ShopController::class, 'checklogin'])->name('shop.checklogin');
 Route::get('/login', [ShopController::class, 'login'])->name('shop.login');
+
+// shop============
+Route::get('/cart', [CartController::class, 'Cart'])->name('cart.index');
+Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
+Route::get('/store/{id}', [CartController::class, 'addtocart'])->name('shop.addtocart');
+Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');

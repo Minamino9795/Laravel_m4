@@ -24,6 +24,8 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('Usershop/css/style.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -34,11 +36,15 @@
 
     <!-- Navbar Start -->
     @include('Usershop.includes.sidebar')
+    {{-- @yield('content1') --}}
+
+
     <!-- Navbar End -->
 
 
     <!-- Carousel Start -->
-    <div class="container-fluid mb-3">
+
+    <div id="carousel-container" class="container-fluid mb-3">
         <div class="row px-xl-5">
             <div class="col-lg-8">
                 <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
@@ -81,7 +87,8 @@
                                 style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Top watch</h1>
+                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Top
+                                        watch</h1>
                                     <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet
                                         lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
                                     <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp"
@@ -112,7 +119,16 @@
             </div>
         </div>
     </div>
+
     <!-- Carousel End -->
+    <script>
+        // Kiểm tra đường dẫn hiện tại của trang
+        var currentPath = window.location.pathname.toLowerCase();
+        if (currentPath.includes('/home/detail/') || currentPath.includes('/cart')) {
+            // Nếu đường dẫn chứa '/home/detail/' hoặc '/cart/', ẩn phần tử có id là 'carousel-container'
+            document.getElementById('carousel-container').style.display = 'none';
+        }
+    </script>
 
 
     <!-- Featured Start -->
@@ -243,6 +259,9 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    
+    @yield('scripts')
 
 
     <!-- JavaScript Libraries -->
