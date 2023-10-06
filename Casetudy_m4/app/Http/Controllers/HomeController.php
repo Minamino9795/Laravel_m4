@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Product::with('category');
+        $query = Product::with('category')->where('status', 0);;
 
         if (isset($request->search)) {
             $search = $request->search;
@@ -17,9 +17,11 @@ class HomeController extends Controller
         }
         // Sắp xếp theo trường created_at giảm dần
         $products = $query->orderBy('id', 'desc')->paginate(8);
+        $successMessage = '';
+
         return view('home.index', compact('products'));
     }
-    public function detail(string $id)
+    public function detail(Request $request, string $id)
     {
         $products = Product::find($id);
         // Lấy các sản phẩm có liên quan (ví dụ: cùng danh mục)
@@ -28,7 +30,6 @@ class HomeController extends Controller
             ->inRandomOrder() // Sắp xếp ngẫu nhiên
             ->limit(4) // Giới hạn số lượng sản phẩm hiển thị
             ->get();
-
         return view('Home.detail', compact('products', 'relatedProducts'));
     }
 }

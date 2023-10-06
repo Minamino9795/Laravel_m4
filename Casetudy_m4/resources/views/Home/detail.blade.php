@@ -1,5 +1,26 @@
 @extends('Usershop.master')
 @section('content')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.js"></script>
+    @if (session('successMessage1'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: '<h6>{{ session('successMessage1') }}</h6>',
+                showConfirmButton: false,
+                timer: 2000,
+                width: '300px',
+                customClass: {
+                    popup: 'animated bounce',
+                },
+                background: '#f4f4f4',
+                iconColor: '#00a65a',
+            });
+        </script>
+    @endif
     <div class="container-fluid pb-5">
         <div class="row px-xl-5">
             <div class="col-lg-5 mb-30">
@@ -45,11 +66,15 @@
                     @else
                         <span class="badge badge-danger">
                             <i class="fas fa-times-circle"></i> Out stock
+                           
                         </span>
-                    @endif
+                        @endif
                     </p>
-
-
+                    
+                    <div>
+                        <p class="font-family">
+                        {{ $products->quantity }} products available</p>
+                    </div>
 
                     <div class="d-flex align-items-center mb-4 pt-2">
                         <div class="input-group quantity mr-3" style="width: 130px;">
@@ -58,6 +83,7 @@
                                     <i class="fa fa-minus"></i>
                                 </button>
                             </div>
+                            
                             <input type="text" class="form-control bg-secondary border-0 text-center" value="1">
                             <div class="input-group-btn">
                                 <button class="btn btn-primary btn-plus">
@@ -65,9 +91,18 @@
                                 </button>
                             </div>
                         </div>
-                        <a href="{{ route('shop.addtocart', $products->id) }}" id="{{ $products->id }}"
-                          class="btn btn-danger mt-20">Thêm vào giỏ hàng</a>
+                        
+                        <div class="button-group">
+                            <div>
+                                <a href="{{ route('shop.addtocart', $products->id) }}" id="{{ $products->id }}"
+                                    class="btn btn-danger mt-20" onclick="return $successMessage1">Add to cart</a>
+                           
+                                <a href="{{ route('shop.addtocart', ['id' => $products->id, 'buynow' => true]) }}" class="btn btn-success">Buy now</a>
+                            </div>
+                        </div>
+                        
                     </div>
+                    
                     <div class="d-flex pt-2">
                         <strong class="text-dark mr-2">Share on:</strong>
                         <div class="d-inline-flex">

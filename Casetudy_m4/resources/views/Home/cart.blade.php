@@ -11,6 +11,28 @@
         </tr>
     </thead>
     <tbody>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.js"></script>
+        @if (session('successMessage'))
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: '<h6>{{ session('successMessage') }}</h6>',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    width: '300px',
+                    customClass: {
+                        popup: 'animated bounce',
+                    },
+                    background: '#f4f4f4',
+                    iconColor: '#00a65a',
+                });
+            </script>
+            
+            @endif
         @php $total = 0 @endphp
         @if(session('cart'))
             @foreach(session('cart') as $id => $details)
@@ -30,7 +52,7 @@
                     </td>
                     <td data-th="Subtotal" class="text-center">{{ number_format($details['price'] * $details['quantity']) }} VNĐ</td>
                     <td class="actions" data-th="">
-                        <button class="btn btn-danger btn-sm remove-from-cart"><i class="btn-sm fa fa-window-close"></i></button>
+                        <button class="btn btn-danger btn-sm remove-from-cart"><i  class="fas fa-trash-alt"></i></button>
                     </td>
                 </tr>
             @endforeach
