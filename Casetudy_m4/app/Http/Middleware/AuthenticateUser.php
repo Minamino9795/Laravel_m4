@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
+
 class AuthenticateUser
 {
     /**
@@ -14,12 +15,11 @@ class AuthenticateUser
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next): Response
     {
-        // Kiểm tra xem người dùng đã đăng nhập hay chưa
         if (!$request->session()->has('user')) {
             // Người dùng chưa đăng nhập, chuyển hướng về trang đăng nhập
-            return redirect('/login')->with('error', 'Bạn cần đăng nhập để truy cập vào trang sản phẩm.');
+            return redirect()->route('shop.loginadmin');
         }
         return $next($request);
     }

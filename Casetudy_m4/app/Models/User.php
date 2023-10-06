@@ -21,6 +21,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'address',
+        'phone',
+        'image',
+        'gender',
+        'birthday',
+        'group_id',
     ];
 
     /**
@@ -42,4 +48,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    protected $primaryKey = 'id';
+    protected $table = 'users';
 }
