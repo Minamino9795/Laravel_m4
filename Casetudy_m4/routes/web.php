@@ -63,6 +63,9 @@ Route::post('shop/checkRegister', [ShopController::class, 'checkRegister'])->nam
 // đăng nhập tài khoản==============
 Route::post('/login', [ShopController::class, 'checklogin'])->name('shop.checklogin');
 Route::get('/login', [ShopController::class, 'login'])->name('shop.login');
+Route::post('/logoutuser', [ShopController::class,'checklogout'])->name('checklogout');
+Route::get('/logoutuser', [ShopController::class, 'checklogout']);
+
 
 // shop============
 Route::get('/cart', [CartController::class, 'Cart'])->name('cart.index');

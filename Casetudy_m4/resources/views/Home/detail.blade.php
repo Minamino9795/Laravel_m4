@@ -6,21 +6,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.js"></script>
     @if (session('successMessage1'))
-        <script>
-            Swal.fire({
-                icon: 'success',
-                title: '<h6>{{ session('successMessage1') }}</h6>',
-                showConfirmButton: false,
-                timer: 2000,
-                width: '300px',
-                customClass: {
-                    popup: 'animated bounce',
-                },
-                background: '#f4f4f4',
-                iconColor: '#00a65a',
-            });
-        </script>
-    @endif
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: '{{ session('successMessage1') }}',
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 2000, 
+            width: '300px', 
+            padding: '20px', 
+            background: '#ffffff', 
+            iconColor: '#00a65a',
+            customClass: {
+                popup: 'animated bounceInDown', 
+                title: 'text-center',
+            },
+            grow: 'row',
+            toast: true
+        });
+    </script>
+@endif
+
+
+
+
     <div class="container-fluid pb-5">
         <div class="row px-xl-5">
             <div class="col-lg-5 mb-30">

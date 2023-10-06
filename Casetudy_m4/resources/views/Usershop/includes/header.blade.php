@@ -9,67 +9,82 @@
             </div>
         </div>
         <div class="col-lg-6 text-center text-lg-right">
-           
-            <div class="btn-group mx-2">
-                <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">USD</button>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <button class="dropdown-item" type="button">EUR</button>
-                    <button class="dropdown-item" type="button">GBP</button>
-                    <button class="dropdown-item" type="button">CAD</button>
-                </div>
-            </div>
-            <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">EN</button>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <button class="dropdown-item" type="button">FR</button>
-                    <button class="dropdown-item" type="button">AR</button>
-                    <button class="dropdown-item" type="button">RU</button>
-                </div>
-            </div>
             <div class="d-inline-flex align-items-center">
+
+                <div class="btn-group mx-2">
+                    <button type="button" class="btn btn-sm btn-light dropdown-toggle"
+                        data-toggle="dropdown">USD</button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item" type="button">EUR</button>
+                        <button class="dropdown-item" type="button">GBP</button>
+                        <button class="dropdown-item" type="button">CAD</button>
+                    </div>
+                </div>
                 <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-light dropdown-toggle"
+                        data-toggle="dropdown">EN</button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item" type="button">FR</button>
+                        <button class="dropdown-item" type="button">AR</button>
+                        <button class="dropdown-item" type="button">RU</button>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My
+                        Account</button>
+                    <div class="dropdown-menu dropdown-menu-right">
 
-                    <a href="{{ route('shop.login') }}">
-                        <button class="dropdown-item" type="button"> <i class="fas fa-user"></i>Sign in</button></a>
-
+                        <a href="{{ route('shop.login') }}">
+                            <button class="dropdown-item" type="button"> <i class="fas fa-user"></i>Sign
+                                in</button></a>
+                        <a href="{{ route('shop.register') }}">
+                            <button class="dropdown-item" type="button"> <i class="fas fa-user"></i>Sign
+                                up</button></a>
+                        <form action="{{ route('checklogout') }}" method="POST">
+                            @csrf
+                            
+                            <button class="dropdown-item" type="submit">Đăng Xuất</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="d-inline-flex align-items-center d-block d-lg-none">
-            <a href="" class="btn px-0 ml-2">
-                <i class="fas fa-heart text-dark"></i>
-                <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
-            </a>
-            <a href="" class="btn px-0 ml-2">
-                <i class="fas fa-shopping-cart text-dark"></i>
-                <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
-            </a>
-        </div>
-    </div>
-</div>
-<div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
-    <div class="col-lg-4">
-        <a href="" class="text-decoration-none">
-            <span class="h1 text-uppercase text-primary bg-dark px-2">Sweet</span>
-            <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Time 97</span>
-        </a>
-    </div>
-    <div class="col-lg-4 col-6 text-left">
-        <form action="" method="GET">
-            @csrf
-            <div class="input-group">
-                <input type="text" class="form-control" name="search" placeholder="Search for products">
-                <div class="input-group-append">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fa fa-search"></i>
-                        </span>
-                </div>
+            <div class="d-inline-flex align-items-center d-block d-lg-none">
+                <a href="" class="btn px-0 ml-2">
+                    <i class="fas fa-heart text-dark"></i>
+                    <span class="badge text-dark border border-dark rounded-circle"
+                        style="padding-bottom: 2px;">0</span>
+                </a>
+                <a href="" class="btn px-0 ml-2">
+                    <i class="fas fa-shopping-cart text-dark"></i>
+                    <span class="badge text-dark border border-dark rounded-circle"
+                        style="padding-bottom: 2px;">0</span>
+                </a>
             </div>
-        </form>
+        </div>
     </div>
-    <div class="col-lg-4 col-6 text-right">
-        <p class="m-0">Mr.Dương Đình Nghĩa</p>
-        <h5 class="m-0">(+84) 37 4180 497</h5>
+    <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
+        <div class="col-lg-4">
+            <a href="" class="text-decoration-none">
+                <span class="h1 text-uppercase text-primary bg-dark px-2">Sweet</span>
+                <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Time 97</span>
+            </a>
+        </div>
+        <div class="col-lg-4 col-6 text-left">
+            <form action="" method="GET">
+                @csrf
+                <div class="input-group">
+                    <input type="text" class="form-control" name="search" placeholder="Search for products">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-search"></i>
+                            </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-4 col-6 text-right">
+            <p class="m-0">Mr.Dương Đình Nghĩa</p>
+            <h5 class="m-0">(+84) 37 4180 497</h5>
+        </div>
     </div>
-</div>
 </div>

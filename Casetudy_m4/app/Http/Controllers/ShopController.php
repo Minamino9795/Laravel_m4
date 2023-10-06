@@ -51,11 +51,16 @@ class ShopController extends Controller
             'password' => $request->password
         ];
         if (Auth::guard('customers')->attempt($arr)) {
-            return redirect()->route('product.index');
+            return redirect()->route('shop.index');
         } else {
             return redirect()->route('shop.login');
         }
     }
+    public function checklogout()
+{
+    Auth::guard('customers')->logout(); // Đăng xuất khách hàng
+    return redirect()->route('shop.index'); // Chuyển hướng đến trang đăng nhập
+}
 
 
     public function loginadmin()
