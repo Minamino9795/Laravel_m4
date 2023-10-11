@@ -59,7 +59,7 @@
                                                 @endif
                                                 @if (Auth::user()->hasPermission('User_forceDelete'))
                                                     <a data-href="{{ route('user.destroy', $user->id) }}"
-                                                        id="{{ $user->id }}"  title="delete" class="btn btn-danger"><i
+                                                        id="{{ $user->id }}" class="btn btn-danger deleteIcon"><i
                                                             class="fas fa-trash-alt"></i></a>
                                                 @endif
                                             </td>

@@ -136,7 +136,7 @@
                                             <div class="form-actions">
                                                 <br><br><br><br>
                                                 <button class="btn btn-success" type="submit">Save changes</button>
-                                                <a class="btn btn-danger" href="{{ route('user.index') }}">Hủy</a>
+                                                <a class="btn btn-danger" href="{{ route('user.index') }}">Cancel</a>
                                             </div>
                                         </div>
                                 </form>

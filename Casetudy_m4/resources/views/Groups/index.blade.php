@@ -10,11 +10,11 @@
                 </header>
                 <hr>
                 <div class="panel-heading">
-                    <h2 class="offset-4">Danh Sách Nhóm Nhân Viên</h2>
+                    <h2 class="offset-4">Employee Group List</h2>
                 </div>
                 <nav aria-label="breadcrumb">
                     @if (Auth::user()->hasPermission('Group_create'))
-                     <a href="{{ route('group.create') }}" class="btn btn-success">Tạo nhóm nhân viên</a>
+                     <a href="{{ route('group.create') }}" class="btn btn-success">Create employee groups</a>
                     @endif
                 </nav>
                 <div>
@@ -31,10 +31,10 @@
     }}'>
                         <thead>
                             <tr>
-                                <th>STT</th>
-                                <th>Tên</th>
-                                <th>Người đảm nhận</th>
-                                <th data-breakpoints="xs">Tùy Chỉnh</th>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Person in charge of the job</th>
+                                <th data-breakpoints="xs">Action</th>
                             </tr>
                         </thead>
                         <tbody id="myTable">
@@ -43,21 +43,21 @@
                                     <td>{{ $key + 1 }}</td>
 
                                     <td>{{ $group->name }} </td>
-                                    <td>Hiện có {{ count($group->users) }} người</td>
+                                    <td>There are currently {{ count($group->users) }} people</td>
                                     <td>
                                         <form action="{{ route('group.destroy', $group->id) }}" method="POST">
                                             @csrf
                                             @method('PUT')
                                             @if (Auth::user()->hasPermission('Group_update'))
-                                            <a class="btn btn-primary " href="{{route('group.detail', $group->id)}}">Trao Quyền</a>
+                                            <a class="btn btn-primary " href="{{route('group.detail', $group->id)}}">Authorize</a>
                                             @endif
                                             @if (Auth::user()->hasPermission('Group_update'))
                                             <a href="{{ route('group.edit', $group->id) }}"
-                                                class="btn btn-warning">Sửa</a>
+                                                class="btn btn-warning">Edit</a>
                                             @endif
                                                 @if (Auth::user()->hasPermission('Group_forceDelete'))
                                                 <a data-href="{{ route('group.destroy', $group->id) }}"
-                                                    id="{{ $group->id }}" class="btn btn-danger sm deleteIcon">Xóa</a>
+                                                    id="{{ $group->id }}" class="btn btn-danger sm deleteIcon">Delete</a>
                                                 @endif
                                         </form>
                                     </td>

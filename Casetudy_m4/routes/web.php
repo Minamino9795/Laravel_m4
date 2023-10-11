@@ -84,6 +84,7 @@ Route::prefix('/')->middleware(['auth', 'preventBackHistory'])->group(function (
     Route::get('category/trash', [CategoryController::class, 'trash'])->name('category.trash');
     Route::put('category/restoredelete/{id}', [CategoryController::class, 'restoredelete'])->name('category.restoredelete');
     Route::get('category/destroy/{id}', [CategoryController::class, 'destroy'])->name('category_destroy');
+    // chuyển đổi ngôn ngữ==========
     Route::get('lang/change', [CategoryController::class, 'change'])->name('changeLang');
     //xóa mềm product=============
 
@@ -96,6 +97,8 @@ Route::prefix('/')->middleware(['auth', 'preventBackHistory'])->group(function (
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
 
+
+    // Route users=====================
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
     Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
     Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
@@ -107,10 +110,8 @@ Route::prefix('/')->middleware(['auth', 'preventBackHistory'])->group(function (
     Route::put('/user/updatepass/{id}', [UserController::class, 'updatepass'])->name('user.updatepass');
     Route::get('/user/adminpass/{id}', [UserController::class, 'adminpass'])->name('user.adminpass');
     Route::put('/user/adminUpdatePass/{id}', [UserController::class, 'adminUpdatePass'])->name('user.adminUpdatePass');
-});
 
-// Route groups =============
-Route::group(['prefix' => '/'], function () {
+    // Route groups =============
     Route::get('group', [GroupController::class, 'index'])->name('group.index');
     Route::get('/create', [GroupController::class, 'create'])->name('group.create');
     Route::post('/store', [GroupController::class, 'store'])->name('group.store');
@@ -121,8 +122,12 @@ Route::group(['prefix' => '/'], function () {
     Route::put('/group_detail/{id}', [GroupController::class, 'group_detail'])->name('group.group_detail');
 });
 
-// Route users=====================
-Route::group(['prefix' => '/'], function () {
-});
+
+
+
+
+
+
+
 
 // chuyển đổi ngôn ngữ==========
