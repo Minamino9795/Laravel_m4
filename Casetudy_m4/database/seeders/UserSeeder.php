@@ -1,35 +1,29 @@
 <?php
-
 namespace Database\Seeders;
-
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\Hash;
 class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
+     *
+     * @return void
      */
-    public function run(): void
+    public function run()
     {
-        $users = [
-            [
-                'name' => 'admin',
-                'email' => 'nghia@gmail.com',
-                'password' => '12345',
-                'address'=> 'cam lộ',
-                'phone'=>'0374180497',
-                'image'=>'user.jpg',
-                'gender'=>'nam',
-                'birthday'=>'1997/04/18',
-                'group_id'=>1,
-            ],
-            
-        ];
-  
-        foreach ($users as $key => $value) {
-            User::create($value);
-        }
+        $item = new User();
+        $item->name = "Trần Hữu Nhân";
+        $item->email = "tranhuunhan010104@gmail.com";
+        $item->password = Hash::make('123456789');
+        $item->address = 'Quảng Trị';
+        $item->phone  = "0702339203";
+        $item->image ='a26.jpg';
+        $item->gender ='Nam';
+        $item->birthday ='2004/01/01';
+        $item->group_id ='1';
+        // $item->image ='thang.ipg';
+        $item->save();
     }
 }

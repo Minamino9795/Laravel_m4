@@ -69,9 +69,14 @@
                 </script>
                   
             @endif
-
+            <li class="nav-item dropdown">
+                <select class="form-control changeLang">
+                    <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>EN</option>
+                    <option value="vi" {{ session()->get('locale') == 'vi' ? 'selected' : '' }}>VI</option>
+                </select>
+            </li>
             <div>
-                <h2>LIST CATEGORIES</h2>
+                <h2>{{ __('language.category') }}</h2>
             </div>
 
             <div class="card my-4">
@@ -83,21 +88,21 @@
                             <div class="input-group">
                                 <div class="form-outline">
                                     <input type="text" class="form-control" name="search"
-                                        placeholder="Enter search keywords">
+                                        placeholder="{{ __('language.search') }}">
                                 </div>
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
                         </form><br>
-                        <a href="{{ route('category.create') }}" class="btn btn-success">+ New</a>
+                        <a href="{{ route('category.create') }}" class="btn btn-success">+ {{ __('language.new') }}</a>
 
                         <table class="table table-hover" border="1">
                             <thead style="background: linear-gradient(to bottom, #a208c8 , #0768f1)">
                                 <tr>
-                                    <th scope="col" style="color: white">STT</th>
-                                    <th scope="col" style="color: white">Category Name</th>
-                                    <th scope="col" style="color: white">Action</th>
+                                    <th scope="col" style="color: white">#</th>
+                                    <th scope="col" style="color: white">{{ __('language.category_name') }}</th>
+                                    <th scope="col" style="color: white">{{ __('language.action') }}</th>
                                     <th class="text-secondary opacity-7"></th>
                                 </tr>
                             </thead>
@@ -120,10 +125,13 @@
                                                     <button class="btn btn-success" title="Show"><i
                                                             class="fas fa-eye"></i></button>
                                                 </a> |
+                                                {{-- @can('edit-category',$category) --}}
                                                 <a href="{{ route('category.edit', $category->id) }}">
                                                     <button class="btn btn-primary" title="Edit"><i
                                                             class="fas fa-edit"></i></button>
-                                                </a> |
+                                                </a>
+                                                {{-- @endcan  --}}
+                                                |
                                                 <form action="{{ route('category.softdeletes', $category->id) }}" method="POST">
                                                     @method('PUT')
                                                     @csrf

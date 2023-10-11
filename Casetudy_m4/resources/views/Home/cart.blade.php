@@ -69,7 +69,8 @@
         <tr>
             <td colspan="5" class="text-right">
                 <a href="{{ url('/') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a>
-                <button class="btn btn-success">Checkout</button>
+                <a href="{{ route('checkOuts') }}" class="btn btn-success"> Checkout</a>
+                {{-- <button class="btn btn-success">Checkout</button> --}}
             </td>
         </tr>
     </tfoot>
@@ -117,3 +118,4 @@
             });
         </script>
         @endsection
+      

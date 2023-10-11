@@ -16,11 +16,8 @@ class CartController extends Controller
             'products' => $products,
             'categories' => $categories,
         ];
-        $successMessage = '';
-        if ($request->session()->has('successMessage')) {
-            $successMessage = $request->session()->get('successMessage');
-        }
-        return view('Home.cart', $param, compact('products', 'successMessage'));
+        
+        return view('Home.cart', $param, compact('products'));
     }
     public function addtocart($id)
     {
@@ -58,6 +55,7 @@ class CartController extends Controller
             session()->put('cart', $cart);
             session()->flash('success', 'Cart updated successfully');
         }
+        
     }
     public function remove(Request $request)
     {

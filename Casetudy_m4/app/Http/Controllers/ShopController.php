@@ -88,5 +88,9 @@ class ShopController extends Controller
         Session::forget('user');
         return redirect()->route('shop.loginadmin');
     }
+    public function checkOuts()
+    {
+        return view('shop.checkout');
+    }
    
 }

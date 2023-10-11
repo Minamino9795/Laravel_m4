@@ -1,14 +1,10 @@
 <?php
-
 namespace App\Http\Middleware;
-
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\App;
 use Symfony\Component\HttpFoundation\Response;
-
-
-class AuthenticateUser
+class LanguageManager
 {
     /**
      * Handle an incoming request.
@@ -17,10 +13,21 @@ class AuthenticateUser
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // if (!$request->session()->has('user')) {
-        //     // Người dùng chưa đăng nhập, chuyển hướng về trang đăng nhập
-        //     return redirect()->route('shop.loginadmin');
-        // }
+        if (session()->has('locale')) {
+            App::setLocale(session()->get('locale'));
+        }
         return $next($request);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+

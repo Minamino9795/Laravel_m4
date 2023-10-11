@@ -28,17 +28,17 @@ class ProductController extends Controller
 
         // dd($products);
 
-        $successMessage = '';
-        if ($request->session()->has('successMessage')) {
-            $successMessage = $request->session()->get('successMessage');
-        } elseif ($request->session()->has('successMessage1')) {
-            $successMessage = $request->session()->get('successMessage1');
-        } elseif ($request->session()->has('successMessage2')) {
-            $successMessage = $request->session()->get('successMessage2');
-        } elseif ($request->session()->has('successMessage3')) {
-            $successMessage = $request->session()->get('successMessage3');
-        }
-        return view('Products.index', compact('products', 'successMessage'));
+        // $successMessage = '';
+        // if ($request->session()->has('successMessage')) {
+        //     $successMessage = $request->session()->get('successMessage');
+        // } elseif ($request->session()->has('successMessage1')) {
+        //     $successMessage = $request->session()->get('successMessage1');
+        // } elseif ($request->session()->has('successMessage2')) {
+        //     $successMessage = $request->session()->get('successMessage2');
+        // } elseif ($request->session()->has('successMessage3')) {
+        //     $successMessage = $request->session()->get('successMessage3');
+        // }
+        return view('Products.index', compact('products'));
     }
 
     /**

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoryRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\App;
 
 class CategoryController extends Controller
 {
@@ -13,29 +16,16 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-        $categories = Category::orderBy('id', 'desc')->paginate(3);
+        $this->authorize('viewAny', Category::class);
 
-        // Kiểm tra nếu có tìm kiếm
+        $categories = Category::paginate(4);
         if (isset($request->search)) {
             $search = $request->search;
             $categories = Category::where('name', 'like', "%$search%")
-                ->orderBy('id', 'desc')
-                ->paginate(3);
+                ->paginate();
         }
 
-
-        // Kiểm tra session để lấy thông báo thành công
-        $successMessage = '';
-        if ($request->session()->has('successMessage')) {
-            $successMessage = $request->session()->get('successMessage');
-        } elseif ($request->session()->has('successMessage1')) {
-            $successMessage = $request->session()->get('successMessage1');
-        } elseif ($request->session()->has('successMessage2')) {
-            $successMessage = $request->session()->get('successMessage2');
-        }
-
-        // Trả về view với danh sách loại hàng và thông báo thành công
-        return view('Categories.index', compact('categories', 'successMessage'));
+        return view('Categories.index', compact('categories'));
     }
 
 
@@ -45,6 +35,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Category::class);
+
         return view('Categories.create');
     }
 
@@ -55,7 +47,7 @@ class CategoryController extends Controller
     {
         $categories = new Category();
         $categories->name = $request->name;
-        $categories->save();      
+        $categories->save();
         return redirect()->route('category.index')->with('successMessage', 'More success');
     }
 
@@ -75,6 +67,13 @@ class CategoryController extends Controller
     {
         $categories = Category::find($id);
         return view('Categories.edit', compact('categories'));
+        // $categories = Category::find($id);
+        // if (Gate::allows('edit-category', $categories)) {
+        // return view('Categories.edit', compact(['categories']));
+        // }
+        // else{
+        //     return redirect()->route('category.index')->with('error', 'Bạn không có quyền chỉnh sửa bài viết này.');
+        // }
     }
 
     /**
@@ -82,6 +81,8 @@ class CategoryController extends Controller
      */
     public function update(CategoryRequest $request, string $id)
     {
+        $this->authorize('update', Category::class);
+
         $categories = Category::find($id);
         $categories->name = $request->name;
         $categories->save();
@@ -93,13 +94,17 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        
+        $this->authorize('delete', Category::class);
+
+
         $category = Category::onlyTrashed()->findOrFail($id);
         $category->forceDelete();
         return redirect()->back()->with('successMessage2', 'Deleted successfully');
     }
     public  function softdeletes($id)
     {
+        $this->authorize('delete', Category::class);
+
         date_default_timezone_set("Asia/Ho_Chi_Minh");
         $category = Category::findOrFail($id);
         $category->deleted_at = date("Y-m-d h:i:s");
@@ -110,15 +115,25 @@ class CategoryController extends Controller
     }
     public  function trash()
     {
+        $this->authorize('viewtrash', Category::class);
+
         $categories = Category::onlyTrashed()->get();
         $param = ['categories'    => $categories];
         return view('Categories.trash', $param);
     }
     public function restoredelete($id)
-    {      
+    {
+        $this->authorize('restore', Category::class);
+
         $categories = Category::withTrashed()->where('id', $id);
         $categories->restore();
         return redirect()->route('category.trash')->with('successMessage3', 'Restore successfully');
         // return redirect()->route('category.trash');
+    }
+    public function change(Request $request)
+    {
+        App::setLocale($request->lang);
+        session()->put('locale', $request->lang);
+        return redirect()->back();
     }
 }

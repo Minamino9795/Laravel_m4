@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\User;
 
 
 class Category extends Model
@@ -22,6 +23,7 @@ class Category extends Model
     protected $table = 'categories';
     public $timestamps = true;
     public function product()
+
     {
         return $this->hasMany(Product::class, 'category_id', 'id');
     }
