@@ -8,7 +8,7 @@
                         <div class="market-updates">
                             <div class="container">
                                 <div class="pagetitle">
-                                    <h1 class="offset-4">Chức Vụ</h1>
+                                    <h1 class="offset-4">Authorize</h1>
 
                                 </div>
                                 <div class="page-section">
@@ -19,19 +19,19 @@
                                             <div class="card-body">
                                                 <hr>
                                                 <div class="form-group">
-                                                    <label for="tf1">Tên Quyền:</label> {{ $group->name }}
+                                                    <label for="tf1">Position:</label> {{ $group->name }}
                                                 </div><br>
                                                 <div class="form-group">
 
                                                     <input type="checkbox" id="checkAll" class="form-check-input"
                                                         value="Quyền hạn">
-                                                    <label class="w3-button w3-blue">{{ __('Cấp toàn bộ quyền') }}
+                                                    <label class="w3-button w3-blue">{{ __('Grant full permissions') }}
                                                         <div class="row">
                                                             @foreach ($group_names as $group_name => $roles)
                                                                 <div class="col-lg-6">
                                                                     <div class="list-group-header"
                                                                         style="color:rgb(2, 6, 249) ;">
-                                                                        <h5> Nhóm: {{ __($group_name) }}</h5>
+                                                                        <h5> Group: {{ __($group_name) }}</h5>
                                                                     </div>
                                                                     @foreach ($roles as $role)
                                                                         <div
@@ -54,9 +54,9 @@
                                                         </div>
                                                 </div>
                                                 <div class="form-actions">
-                                                    <button class="btn btn-success" type="submit">Duyệt</button>
+                                                    <button class="btn btn-success" type="submit">Agree</button>
                                                     <a href="{{ route('group.index') }}" class="btn btn-danger"
-                                                        type="submit">Hủy</a>
+                                                        type="submit">cancel</a>
                                                 </div>
                                             </div>
                                         </div>

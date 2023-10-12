@@ -69,12 +69,12 @@
                 </script>
                   
             @endif
-            <li class="nav-item dropdown">
+{{--            
                 <select class="form-control changeLang">
                     <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>EN</option>
                     <option value="vi" {{ session()->get('locale') == 'vi' ? 'selected' : '' }}>VI</option>
-                </select>
-            </li>
+                </select> --}}
+           
             <div>
                 <h2>{{ __('language.category') }}</h2>
             </div>

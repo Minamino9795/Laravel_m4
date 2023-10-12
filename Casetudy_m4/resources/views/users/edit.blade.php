@@ -102,23 +102,7 @@
                                                         <p style="color:red">{{ $errors->first('gender') }}</p>
                                                     @endif
                                                 </div>
-                                                <div class="form-group has-warning">
-                                                    <label class="col-lg-3 control-label">Image</label>
-                                                    <div class="col-lg-4">
-                                                        <input accept="image/*" type='file' value="{{ $user->image }}"
-                                                            id="inputFile" name="image" /><br>
-                                                        <img type="hidden" width="90px" height="90px" id="blah1"
-                                                            src="{{ asset($user->image) ?? asset($request->image) }}"
-                                                            alt="" />
-                                                        @if ('image')
-                                                            <p style="color:red">{{ $errors->first('image') }}</p>
-                                                        @endif
-                                                        <br>
-                                                    </div>
-                                                </div>
-
-                                                {{-- địa chỉ --}}
-                                                <div class="col-lg-12">
+                                                <div class="form-group col-lg-4">
                                                     <div class="form-group">
                                                         <label for="tf1">Address><abbr
                                                                 name="Trường bắt buộc">*</abbr></label> <input
@@ -133,6 +117,23 @@
                                                 </div>
 
                                             </div>
+                                            <div class="form-group has-warning">
+                                                <label class="col-lg-3 control-label">Image</label>
+                                                <div class="col-lg-4">
+                                                    <input accept="image/*" type='file' value="{{ $user->image }}"
+                                                        id="inputFile" name="image" /><br>
+                                                    <img type="hidden" width="90px" height="90px" id="blah1"
+                                                        src="{{ asset($user->image) ?? asset($request->image) }}"
+                                                        alt="" />
+                                                    @if ('image')
+                                                        <p style="color:red">{{ $errors->first('image') }}</p>
+                                                    @endif
+                                                    <br>
+                                                </div>
+                                            </div>
+
+                                            {{-- địa chỉ --}}
+
                                             <div class="form-actions">
                                                 <br><br><br><br>
                                                 <button class="btn btn-success" type="submit">Save changes</button>

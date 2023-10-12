@@ -124,11 +124,12 @@
     <script>
         // Kiểm tra đường dẫn hiện tại của trang
         var currentPath = window.location.pathname.toLowerCase();
-        if (currentPath.includes('/home/detail/') || currentPath.includes('/cart')) {
+        if (currentPath.includes('/home/detail/') || currentPath.includes('/cart') || currentPath.includes('/checkouts')) {
             // Nếu đường dẫn chứa '/home/detail/' hoặc '/cart/', ẩn phần tử có id là 'carousel-container'
             document.getElementById('carousel-container').style.display = 'none';
         }
     </script>
+     
 
 
     <!-- Featured Start -->

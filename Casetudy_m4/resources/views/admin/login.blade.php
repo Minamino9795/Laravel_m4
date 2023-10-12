@@ -1,211 +1,157 @@
-<style>
-    *{
-     margin:0;
-     padding: 0;
-     box-sizing: border-box;
-     font-family: 'Roboto', sans-serif;
- }
- section{
-     position: relative;
-     width: 100%;
-     height: 100vh;
-     display: flex;
- }
- section .img-bg{
-     position: relative;
-     width: 50%;
-     height: 100%;
- }
- section .img-bg img{
-     position: absolute;
-     top: 0;
-     left: 0;
-     width: 100%;
-     height: 100%;
-     object-fit: cover;
- }
- section .noi-dung{
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     width: 50%;
-     height: 100%;
- }
- section .noi-dung .form{
-     width: 50%;
- }
- section .noi-dung .form h2{
-     color: #607D8B;
-     font-weight: 500;
-     font-size: 1.5em;
-     text-transform: uppercase;
-     margin-bottom: 20px;
-     border-bottom: 4px solid #6694E9;
-     display: inline-block;
-     letter-spacing: 1px;
- }
- section .noi-dung .form .input-form{
-      margin-bottom: 20px;
-  }
- section .noi-dung .form .input-form span{
-      font-size: 16px;
-      margin-bottom: 5px;
-      display: inline-block;
-      color: #607DB8;
-      letter-spacing: 1px;
-       }
- section .noi-dung .form .input-form input{
-      width: 100%;
-      padding: 10px 20px;
-      outline: none;
-      border: 1px solid #607D8B;
-      font-size: 16px;
-      letter-spacing: 1px;
-      color: #607D8B;
-      background: transparent;
-      border-radius: 30px;
-      }
-  section .noi-dung .form .input-form input[type="submit"]{
-      background: #6694E9;
-      color: #fff;
-      outline: none;
-      border: none;
-      font-weight: 500;
-      cursor: pointer;
-      box-shadow: 0 1px 1px rgba(0,0,0,0.12),
-                 0 2px 2px rgba(0,0,0,0.12),
-                 0 4px 4px rgba(0,0,0,0.12),
-                0 8px 8px rgba(0,0,0,0.12),
-                0 16px 16px rgba(0,0,0,0.12);
-  }
- section .noi-dung .form .input-form input[type="submit"]:hover{
-      background: #6694E9;
-  }
-  section .noi-dung .form .nho-dang-nhap{
-      margin-bottom: 10px;
-      color: #607D8B;
-      font-size: 14px;
-  }
-  section .noi-dung .form .input-form p{
-      color: #607D8B;
-  }
- section .noi-dung .form .input-form p a{
-      color: #FFB3B3;
-  }
- section .noi-dung .form h3{
-      color: #607D8B;
-      text-align: center;
-      margin: 80px 0 10px;
-      font-weight: 500;
-  }
- section .noi-dung .form .icon-dang-nhap{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
- section .noi-dung .form .icon-dang-nhap li{
-      list-style: none;
-      cursor: pointer;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
-  section .noi-dung .form .icon-dang-nhap li:nth-child(1){
-      color: #3B5999;
-  }
-  section .noi-dung .form .icon-dang-nhap li:nth-child(2){
-      color: #DD4B39;
-  }
-  section .noi-dung .form .icon-dang-nhap li:nth-child(3){
-      color: #55ACEE;
-  }
-  section .noi-dung .form .icon-dang-nhap li i{
-      font-size: 24px;
-  }
- @media (max-width: 768px){
-     section .img-bg{
-         position: absolute;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-     }
-     section .noi-dung{
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         width: 100%;
-         height: 100%;
-         z-index: 1;
-     }
-     section .noi-dung .form{
-         width: 100%;
-         padding: 40px;
-         background: rgba(255 255 255 / 0.9);
-         margin: 50px;
-     }
-     section .noi-dung .form h3{
-         color: #607D8B;
-         text-align: center;
-         margin: 30px 0 10px;
-         font-weight: 500;
-     }
- }
- </style>
- <section>
-     <!--Bắt Đầu Phần Hình Ảnh-->
-     <div class="img-bg">
-         <img src="https://media.istockphoto.com/id/1299730469/vi/anh/n%C3%BAt-x%C3%A1c-th%E1%BB%B1c-sinh-tr%E1%BA%AFc-h%E1%BB%8Dc-v%C3%A2n-tay-kh%C3%A1i-ni%E1%BB%87m-b%E1%BA%A3o-m%E1%BA%ADt-k%E1%BB%B9-thu%E1%BA%ADt-s%E1%BB%91.jpg?b=1&s=612x612&w=0&k=20&c=_ckOoAP0jhq7DXZ6pfyheHYmuDaObYqr8Hw_9D6Huxo=" alt="Hình Ảnh Minh Họa">
-     </div>
-     <!--Kết Thúc Phần Hình Ảnh-->
-     <!--Bắt Đầu Phần Nội Dung-->
-     <div class="noi-dung">
-         <div class="form">
-             <h2>Trang Đăng Nhập</h2>
-             <form action="{{ route('postlogin') }}" method="POST" >
-                @csrf
-                 <div class="input-form">
-                     <span>Email</span>
-                     <input type="text" name="email">
-                     @if ($errors->any())
-                     <p style="color:red">{{ $errors->first('email') }}</p>
-                 @endif
-                 </div>
-                 <div class="input-form">
-                     <span>Password</span>
-                     <input type="password" name="password">
-                     @if ($errors->any())
-                     <p style="color:red">{{ $errors->first('password') }}</p>
-                 @endif
-                 </div>
-                 <div class="nho-dang-nhap">
-                     <label><input type="checkbox" name=""> Nhớ Đăng Nhập</label>
-                     <a href="">Quên Mật Khẩu</a>
-                 </div>
-                 <div class="input-form">
-                     <input type="submit" value="Đăng Nhập">
-                 </div>
-             </form>
-         </div>
-     </div>
-     <!--Kết Thúc Phần Nội Dung-->
-     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-     <script>
-    @php
-    if(Session::has('okmail')){
-    @endphp
-    Swal.fire({
-         icon: 'success',
-         title: 'Lấy mật khẩu thành công!',
-         text: "Bạn chưa nhận được Email? Liên hệ SuperAdmin để xin cấp lại mật khẩu nhé!!! LH:0376301480 Email: tpnshop247@gmail.com",
-         showClass: {
-         popup: 'swal2-show'
-             }
-         })
-     @php
-    }
-     @endphp
-     </script>
- </section>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <title>
+        Material Dashboard 2 by Creative Tim
+    </title>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <!-- Nucleo Icons -->
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- CSS Files -->
+    <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
+    <!-- Nepcha Analytics (nepcha.com) -->
+    <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+</head>
+
+<body class="bg-gray-200">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.js"></script>
+    @if (session('errorMessage'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                html: '<h6>{{ session('errorMessage') }}</h6>',
+                showConfirmButton: false,
+                timer: 2000,
+                width: '300px',
+
+                customClass: {
+                    popup: 'animated bounce',
+                },
+                background: '#f4f4f4',
+                iconColor: '#ff0000', // Màu đỏ cho biểu tượng lỗi
+            });
+        </script>
+    @endif
+
+    <div class="container position-sticky z-index-sticky top-0">
+        <div class="row">
+            <div class="col-12">
+                <!-- Navbar -->
+
+                <!-- End Navbar -->
+            </div>
+        </div>
+    </div>
+    <main class="main-content  mt-0">
+        <div class="page-header align-items-start min-vh-100"
+            style="background-image: url('https://images.unsplash.com/photo-1497294815431-9365093b7331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80');">
+            <span class="mask bg-gradient-dark opacity-6"></span>
+            <div class="container my-auto">
+                <div class="row">
+                    <div class="col-lg-4 col-md-8 col-12 mx-auto">
+                        <div class="card z-index-0 fadeIn3 fadeInBottom">
+                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                                    <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Login Admin</h4>
+                                    <div class="row mt-3">
+                                        <div class="col-2 text-center ms-auto">
+                                            <a class="btn btn-link px-3" href="javascript:;">
+                                                <i class="fa fa-facebook text-white text-lg"></i>
+                                            </a>
+                                        </div>
+                                        <div class="col-2 text-center px-1">
+                                            <a class="btn btn-link px-3" href="javascript:;">
+                                                <i class="fa fa-github text-white text-lg"></i>
+                                            </a>
+                                        </div>
+                                        <div class="col-2 text-center me-auto">
+                                            <a class="btn btn-link px-3" href="javascript:;">
+                                                <i class="fa fa-google text-white text-lg"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <form method="POST" action="{{ route('postlogin') }}">
+                                @csrf
+                                <div class="card-body">
+                                    <form role="form" class="text-start">
+                                        <div class="input-group input-group-outline my-3">
+                                            <label class="form-label">Email</label>
+                                            <input type="email" name="email" class="form-control" required>
+
+                                        </div>
+                                        @if ($errors->any())
+                                            <p style="color:red">{{ $errors->first('email') }}</p>
+                                        @endif
+                                        <div class="input-group input-group-outline mb-3">
+                                            <label class="form-label">Password</label>
+                                            <input type="password" name="password" class="form-control" required>
+
+                                        </div>
+                                        @if ($errors->any())
+                                            <p style="color:red">{{ $errors->first('password') }}</p>
+                                        @endif
+                                        <div class="form-check form-switch d-flex align-items-center mb-3">
+                                            <input class="form-check-input" type="checkbox" id="rememberMe" checked>
+                                            <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember
+                                                me</label>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2"
+                                                onclick="return $errorMessage">Sign
+                                                in</button>
+                                        </div>
+                                        {{-- <p class="mt-4 text-sm text-center">
+                                            Don't have an account?
+                                            <a href="{{ route('shop.register') }}"
+                                                class="text-primary text-gradient font-weight-bold">Sign up</a>
+                                        </p> --}}
+                                    </form>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <!--   Core JS Files   -->
+    <script src="../assets/js/core/popper.min.js"></script>
+    <script src="../assets/js/core/bootstrap.min.js"></script>
+    <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+    </script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
+</body>
+
+</html>

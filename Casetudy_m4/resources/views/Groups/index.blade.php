@@ -20,7 +20,7 @@
                 <div>
                     <table class="table" ui-jq="footable"
                         ui-options='{
-    "paging": {
+        "paging": {
       "enabled": true
     },
     "filtering": {
@@ -29,12 +29,13 @@
     "sorting": {
       "enabled": true
     }}'>
-                        <thead>
+    <thead style="background: linear-gradient(to bottom, #a208c8 , #0768f1)">
+
                             <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Person in charge of the job</th>
-                                <th data-breakpoints="xs">Action</th>
+                                <th style="color: white">#</th>
+                                <th style="color: white">Name</th>
+                                <th style="color: white">Person in charge of the job</th>
+                                <th data-breakpoints="xs" style="color: white">Action</th>
                             </tr>
                         </thead>
                         <tbody id="myTable">
@@ -49,15 +50,15 @@
                                             @csrf
                                             @method('PUT')
                                             @if (Auth::user()->hasPermission('Group_update'))
-                                            <a class="btn btn-primary " href="{{route('group.detail', $group->id)}}">Authorize</a>
+                                            <a class="btn btn-success" href="{{route('group.detail', $group->id)}}" title="Authorize"><i class="material-icons">vpn_key</i></a>
                                             @endif
                                             @if (Auth::user()->hasPermission('Group_update'))
                                             <a href="{{ route('group.edit', $group->id) }}"
-                                                class="btn btn-warning">Edit</a>
+                                                class="btn btn-info" title="Edit"><i class="fas fa-edit"></i></a>
                                             @endif
                                                 @if (Auth::user()->hasPermission('Group_forceDelete'))
                                                 <a data-href="{{ route('group.destroy', $group->id) }}"
-                                                    id="{{ $group->id }}" class="btn btn-danger sm deleteIcon">Delete</a>
+                                                    id="{{ $group->id }}" class="btn btn-danger sm deleteIcon"title="Delete"><i class="fas fa-trash-alt"></i></a>
                                                 @endif
                                         </form>
                                     </td>
@@ -80,8 +81,8 @@
        @endphp
        Swal.fire({
             icon: 'success',
-            title: 'Tạo quyền xong rồi nhé!',
-            text: "Cấp quyền ngay nhé",
+            title: 'more success!',
+            text: "Grant permission now",
             showClass: {
             popup: 'swal2-show'
                 }
@@ -101,13 +102,13 @@
             let csrf = '{{ csrf_token() }}';
             console.log(id);
             Swal.fire({
-                title: 'Bạn có chắc không?',
-                text: "Bạn sẽ không thể hoàn nguyên điều này!",
+                title: 'Are you sure?',
+                text: "You will not be able to revert this!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Có, xóa!'
+                confirmButtonText: 'yes, cancel!'
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
@@ -119,7 +120,7 @@
                         success: function(res) {
                             Swal.fire(
                                 'Deleted!',
-                                'Tệp của bạn đã bị xóa!',
+                                'Your file has been deleted!',
                                 'success'
                             )
                             $('.item-' + id).remove();

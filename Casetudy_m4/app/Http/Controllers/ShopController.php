@@ -3,15 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Order;
+use App\Models\OrderDetail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class ShopController extends Controller
 {
-    public function register(){
+    public function register()
+    {
         return view('shop.register');
     }
     public function checkRegister(Request $request)
@@ -39,6 +44,7 @@ class ShopController extends Controller
             return redirect()->route('shop.index')->with($notification);
         }
     }
+    
     public function login()
     {
         return view('shop.login');
@@ -56,17 +62,21 @@ class ShopController extends Controller
             return redirect()->route('shop.login');
         }
     }
+
+
     public function checklogout()
-{
-    Auth::guard('customers')->logout(); // Đăng xuất khách hàng
-    return redirect()->route('shop.index'); // Chuyển hướng đến trang đăng nhập
-}
+    {
+        Auth::guard('customers')->logout(); // Đăng xuất khách hàng
+        return redirect()->route('shop.index'); // Chuyển hướng đến trang đăng nhập
+    }
 
 
     public function loginadmin()
     {
         return view('shop.login_admin');
     }
+
+
     public function checkloginadmin(Request $request)
     {
         // dd(123);
@@ -76,7 +86,7 @@ class ShopController extends Controller
         if ($users && Hash::check($request->input('password'), $users->password)) {
             // Lưu trạng thái đăng nhập vào Session
             Session::put('user', 'user1');
-           
+
             return redirect()->route('product.index');
         } else {
             return redirect()->route('shop.loginadmin')->with('errorMessage', 'Username or password is wrong');;
@@ -92,5 +102,58 @@ class ShopController extends Controller
     {
         return view('shop.checkout');
     }
-   
+    public function order(Request $request)
+    {
+        if ($request->product_id == null) {
+            return redirect()->back();
+        } else {
+            $id = Auth::guard('customers')->user()->id;
+            $data = Customer::find($id);
+            $data->address = $request->address;
+            $data->email = $request->email;
+            $data->phone = $request->phone;
+            if (isset($request->note)) {
+                $data->note = $request->note;
+            }
+            $data->save();
+
+            $order = new Order();
+            $order->customer_id = Auth::guard('customers')->user()->id;
+            $order->date_at = date('Y-m-d H:i:s');
+            // $order->date_ship = date('Y-m-d H:i:s');
+            $order->total = $request->totalAll;
+
+            // dd($request->all());
+            // dd($request->totalAll);
+
+            $order->save();
+        }
+        $count_product = count($request->product_id);
+        for ($i = 0; $i < $count_product; $i++) {
+            $orderItem = new OrderDetail();
+            $orderItem->order_id =  $order->id;
+            $orderItem->product_id = $request->product_id[$i];
+            $orderItem->quantity = $request->quantity[$i];
+            $orderItem->total = $request->total[$i];
+            $orderItem->save();
+            session()->forget('cart');
+            DB::table('products')
+                ->where('id', '=', $orderItem->product_id)
+                ->decrement('quantity', $orderItem->quantity);
+        }
+        $notification = [
+            'message' => 'success',
+        ];
+        $data = [
+            'name' => $request->name,
+            'pass' => $request->password,
+        ];
+        Mail::send('mail.mail', compact('data'), function ($email) use ($request) {
+            $email->subject('Shein Shop');
+            $email->to($request->email, $request->name);
+        });
+
+
+        return redirect()->route('shop.index')->with($notification);;
+    }
 }

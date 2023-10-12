@@ -59,9 +59,9 @@
                             <form action="{{ route('category.restoredelete', $category->id) }}" method="POST">
                                 @csrf
                                 @method('put')
-                                <button type="submit" class="btn btn-success">Restore</button>
+                                <button type="submit" class="btn btn-success" title="Restore"><i class="fa fa-undo"></i></button>
                                 <a href="{{ route('category_destroy', $category->id) }}" id="{{ $category->id }}"
-                                    class="btn btn-danger">Delete</a>
+                                    class="btn btn-danger" title="Delete"><i class="fas fa-trash-alt"></i></a>
                             </form>
                         </td>
                 @endforeach

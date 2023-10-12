@@ -43,7 +43,7 @@
                         <form action="{{ route('checklogout') }}" method="POST">
                             @csrf
                             
-                            <button class="dropdown-item" type="submit">Đăng Xuất</button>
+                            <button class="dropdown-item" type="submit">Logout</button>
                         </form>
                     </div>
                 </div>

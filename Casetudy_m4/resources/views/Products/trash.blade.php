@@ -60,9 +60,9 @@
                             <form action="{{ route('product.restoredelete', $product->id) }}" method="POST">
                                 @csrf
                                 @method('put')
-                                <button type="submit" class="btn btn-success">Restore</button>
+                                <button type="submit" class="btn btn-success" title="Restore"><i class="fa fa-undo"></i></button>
                                 <a href="{{ route('product_destroy', $product->id) }}" id="{{ $product->id }}"
-                                    class="btn btn-danger">Delete</a>
+                                    class="btn btn-danger"title="Delete"><i class="fas fa-trash-alt"></i></a>
                             </form>
                         </td>
                 @endforeach

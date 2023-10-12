@@ -20,7 +20,7 @@
                         <h1 class="page-title">Information</h1>
                     </header>
                     <!-- Modal -->
-                    <div style="color: red" class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+                    <div style="color: red" class="modal fade" id="editModal" tabindex="-1" aria-hidden="true" >
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -102,7 +102,7 @@
                                                 <a class="example-image-link" data-lightbox="example-set"
                                                     data-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae cursus ligula">
                                                     <img id="avtshow"
-                                                        src="{{ asset('http://localhost/M3/casestudym3/storage/app/public/images/user/' . $user->image) }}"
+                                                        src="{{ asset( $user->image) }}"
                                                         alt="" />
 
                                                 </a>

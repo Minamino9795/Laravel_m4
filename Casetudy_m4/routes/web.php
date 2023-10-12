@@ -6,21 +6,12 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CategorylistController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 // route của layout user
 // Route::get('/', function () {
 //     return view('Usershop.master');
@@ -29,11 +20,14 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('Home.index');
 // });
+
+
+
 // route người dùng================
 Route::get('/', [HomeController::class, 'index'])->name('shop.index');
 Route::get('/home/detail/{id}', [HomeController::class, 'detail'])->name('shop.detail');
 
-// Route::get('/c', [CategorylistController::class, 'index'])->name('list.index');
+
 
 
 
@@ -44,7 +38,7 @@ Route::get('/home/detail/{id}', [HomeController::class, 'detail'])->name('shop.d
 
 
 
-//route admin==========
+
 
 
 //đăng ký tài khoản==============
@@ -120,14 +114,11 @@ Route::prefix('/')->middleware(['auth', 'preventBackHistory'])->group(function (
     Route::delete('destroy/{id}', [GroupController::class, 'destroy'])->name('group.destroy');
     Route::get('/detail/{id}', [GroupController::class, 'detail'])->name('group.detail');
     Route::put('/group_detail/{id}', [GroupController::class, 'group_detail'])->name('group.group_detail');
+
+
+    // Route order==============
+
+    Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+    Route::get('/order/detail/{id}', [OrderController::class, 'detail'])->name('order.detail');
+    Route::get('/xuat', [OrderController::class, 'exportOrder'])->name('xuat');
 });
-
-
-
-
-
-
-
-
-
-// chuyển đổi ngôn ngữ==========

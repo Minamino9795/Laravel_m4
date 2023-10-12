@@ -33,14 +33,14 @@
                                         "enabled": true
                                         }}'>
 
-                                <thead>
+                                        <thead style="background: linear-gradient(to bottom, #a208c8 , #0768f1)">
                                     <tr>
-                                        <th data-breakpoints="xs">#</th>
-                                        <th>Avatar</th>
-                                        <th>Name</th>
-                                        <th>Phone</th>
-                                        <th>Position</th>
-                                        <th data-breakpoints="xs">Action</th>
+                                        <th data-breakpoints="xs" style="color: white">#</th>
+                                        <th style="color: white">Avatar</th>
+                                        <th style="color: white">Name</th>
+                                        <th style="color: white">Phone</th>
+                                        <th style="color: white">Position</th>
+                                        <th data-breakpoints="xs" style="color: white">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody id="myTable">
@@ -55,7 +55,7 @@
                                             <td>
                                                 @if (Auth::user()->hasPermission('User_update'))
                                                     <a href="{{ route('user.edit', $user->id) }}" 
-                                                        title="Edit" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                                        title="Edit" class="btn btn-info"><i class="fas fa-edit"></i></a>
                                                 @endif
                                                 @if (Auth::user()->hasPermission('User_forceDelete'))
                                                     <a data-href="{{ route('user.destroy', $user->id) }}"
@@ -83,13 +83,13 @@
                     let csrf = '{{ csrf_token() }}';
                     console.log(id);
                     Swal.fire({
-                        title: 'Bạn có chắc không?',
-                        text: "Bạn sẽ không thể hoàn nguyên điều này!",
+                        title: 'Are you sure?',
+                        text: "",
                         icon: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#3085d6',
                         cancelButtonColor: '#d33',
-                        confirmButtonText: 'Có, xóa!'
+                        confirmButtonText: 'Yes'
                     }).then((result) => {
                         if (result.isConfirmed) {
                             $.ajax({
@@ -101,7 +101,7 @@
                                 success: function(res) {
                                     Swal.fire(
                                         'Deleted!',
-                                        'Tệp của bạn đã bị xóa!',
+                                        'Your file has been deleted!',
                                         'success'
                                     )
                                     $('.item-' + id).remove();
@@ -109,8 +109,8 @@
                             });
                             Swal.fire({
                                 icon: 'error',
-                                title: 'Xin lỗi',
-                                text: 'Admin không thể xóa!',
+                                title: 'Sorry',
+                                text: 'Admin cannot delete!',
                             })
                         }
                     })
@@ -122,7 +122,7 @@
                 Swal.mixin({
                     toast: true,
                     icon: 'error',
-                    text: "Ngu!",
+                    text: "",
                 }).bindClickHandler('data-swal-toast-template')
             </script>
         </section>
