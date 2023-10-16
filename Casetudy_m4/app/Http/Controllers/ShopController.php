@@ -57,7 +57,7 @@ class ShopController extends Controller
             'password' => $request->password
         ];
         if (Auth::guard('customers')->attempt($arr)) {
-            return redirect()->route('shop.index');
+            return redirect()->route('shop.index')->with('successMessage', 'Login Success');
         } else {
             return redirect()->route('shop.login');
         }
@@ -67,7 +67,7 @@ class ShopController extends Controller
     public function checklogout()
     {
         Auth::guard('customers')->logout(); // Đăng xuất khách hàng
-        return redirect()->route('shop.index'); // Chuyển hướng đến trang đăng nhập
+        return redirect()->route('shop.index')->with('successMessage', 'Logout Success'); // Chuyển hướng đến trang đăng nhập
     }
 
 
@@ -89,14 +89,14 @@ class ShopController extends Controller
 
             return redirect()->route('product.index');
         } else {
-            return redirect()->route('shop.loginadmin')->with('errorMessage', 'Username or password is wrong');;
+            return redirect()->route('shop.loginadmin')->with('errorMessage', 'Username or password is wrong');
         }
     }
     public function logout()
     {
         // Xóa thông tin đăng nhập khỏi Session
         Session::forget('user');
-        return redirect()->route('shop.loginadmin');
+        return redirect()->route('shop.loginadmin')->with('successMessage', 'Logout Success');
     }
     public function checkOuts()
     {
@@ -120,8 +120,10 @@ class ShopController extends Controller
             $order = new Order();
             $order->customer_id = Auth::guard('customers')->user()->id;
             $order->date_at = date('Y-m-d H:i:s');
-            // $order->date_ship = date('Y-m-d H:i:s');
-            $order->total = $request->totalAll;
+            $order->date_ship = date('Y-m-d H:i:s');
+            $order->note = 'Giao hàng nhanh';
+
+            // $order->total = $request->totalAll;
 
             // dd($request->all());
             // dd($request->totalAll);
@@ -148,12 +150,14 @@ class ShopController extends Controller
             'name' => $request->name,
             'pass' => $request->password,
         ];
-        Mail::send('mail.mail', compact('data'), function ($email) use ($request) {
-            $email->subject('Shein Shop');
-            $email->to($request->email, $request->name);
-        });
+      
 
 
-        return redirect()->route('shop.index')->with($notification);;
+        return redirect()->route('orderview')->with('successMessage', 'Order Success');
     }
+    public function orderview()
+    {
+        return view('order.orderview');
+    }
+     
 }

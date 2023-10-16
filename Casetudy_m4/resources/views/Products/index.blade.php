@@ -65,6 +65,9 @@
     </head>
 
     <body>
+        <div class="panel-heading">
+            <h2 class="offset-4">PRODUCTS</h2>
+        </div>
         <div class="container">
             <div class="card-body px-0 pb-2">
                 <div class="table-responsive p-0">
@@ -85,7 +88,7 @@
                     <table class="table table-hover" border="1">
                         <thead style="background: linear-gradient(to bottom, #a208c8 , #0768f1)">
                             <tr>
-                                <th style="color: white">STT</th>
+                                <th style="color: white">#</th>
                                 <th style="color: white">Name</th>
                                 <th style="color: white">Slug</th>
                                 <th style="color: white">Price</th>

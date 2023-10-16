@@ -1,4 +1,4 @@
-<h2>ADD PRODUCT:</h2>
+<h2>THÊM SẢN PHẨM:</h2>
 
 <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
     @csrf

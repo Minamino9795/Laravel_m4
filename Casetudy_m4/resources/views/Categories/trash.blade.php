@@ -34,7 +34,7 @@
             });
         </script>
     @endif
-    <h2 class="offset-4">CATEGORY CATALOG TRASH</h2>
+    <h2 class="offset-4">TRASH CATEGORY</h2>
     <div class="table-responsive pt-3">
         <table class="table table-hover" border="1">
             <thead style="background: linear-gradient(to bottom, #a208c8 , #0768f1)">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
@@ -15,5 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('category',CategoryController::class);
-Route::resource('product',ProductsController::class);
+Route::resource('category', CategoryController::class);
+Route::resource('product', ProductsController::class);
+Route::get('/admin', function () {
+    return view('admin.master');
+});
+
+Route::get('/', [AuthController::class, 'login'])->name('login');
+Route::post('/postlogin', [AuthController::class, 'postlogin'])->name('postlogin');

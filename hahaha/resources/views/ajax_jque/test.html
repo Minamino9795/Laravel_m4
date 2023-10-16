@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- <button id="myButton">Click me</button>
+    <div id="myDiv">Hover over me</div>
+    <script>
+      $(document).ready(function() {
+        $("#myButton").click(function() {
+          alert("Button clicked!");
+        });
+        $("#myDiv").mouseenter(function() {
+          $(this).css("background-color", "lightblue");
+        });
+        $("#myDiv").mouseleave(function() {
+          $(this).css("background-color", "");
+        });
+      });
+    </script> -->
+
+
+
+  <!-- <div id="result"></div>
+
+  <script>
+    // Sử dụng Ajax để gửi yêu cầu GET đến một API
+    $.ajax({
+      url: 'https://jsonplaceholder.typicode.com/todos/1', // URL của API
+      type: 'GET', // Phương thức yêu cầu
+      dataType: 'json', // Kiểu dữ liệu trả về từ API
+      success: function (data) {
+        // Xử lý dữ liệu khi yêu cầu thành công
+        $('#result').html('User ID: ' + data.userId + '<br>Title: ' + data.title);
+      },
+      error: function (error) {
+        // Xử lý lỗi khi yêu cầu thất bại
+        console.log('Error: ' + error.status);
+      }
+    });
+  </script> -->
+
+
+
+<script>
+$(document).ready(function(){
+    $("#hide").click(function(){
+        $("p").hide();
+    });
+    $("#show").click(function(){
+        $("p").show();
+    });
+});
+</script>
+</head>
+<body>
+<p>If you click on the "Hide" button, I will disappear.</p>
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+</body>
+</html>
+
+
+<script>
+  $(document).ready(function(){
+      $("button").click(function(){
+          var div = $("div");
+          div.animate({left: '100px'}, "slow");
+          div.animate({fontSize: '100px'}, "slow");
+      });
+  });
+</script>
+</head>
+<body>
+<button>Start Animation</button>
+<p>By default, all HTML elements have a static position, and cannot be moved. 
+To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+<div style="background:#98bf21;height:100px;width:200px;position:absolute;">HELLO NGHĨA</div>
+</body>
+
+
+</body>
+
+</html>

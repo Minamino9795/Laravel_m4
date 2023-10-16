@@ -20,7 +20,16 @@ class ProductsController extends Controller
                 ->paginate(3);
         }
         // dd($products);
-        return view('Products.index', compact('products',));
+        $successMessage = '';
+        if ($request->session()->has('successMessage')) {
+            $successMessage = $request->session()->get('successMessage');
+        } elseif ($request->session()->has('successMessage1')) {
+            $successMessage = $request->session()->get('successMessage1');
+        } elseif ($request->session()->has('successMessage2')) {
+            $successMessage = $request->session()->get('successMessage2');
+        }
+    
+        return view('Products.index', compact('products', 'successMessage'));
     }
 
     /**
@@ -29,7 +38,6 @@ class ProductsController extends Controller
     public function create()
     {
         $categories = Category::get();
-
         return view('Products.create', compact('categories'));
     }
 
@@ -55,9 +63,9 @@ class ProductsController extends Controller
             $products->image_url = $path;
         }
         $products->save();
-        return redirect()->route('product.index');
+        $request->session()->flash('successMessage', 'THÊM THÀNH CÔNG!');
 
-        // return redirect()->route('product.index');
+        return redirect()->route('product.index');
     }
 
     /**
@@ -65,8 +73,8 @@ class ProductsController extends Controller
      */
     public function show(string $id)
     {
-        $products=Product::find($id);
-        return view('products.show',compact('products'));
+        $products = Product::find($id);
+        return view('products.show', compact('products'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -75,7 +83,7 @@ class ProductsController extends Controller
     {
         $products = Product::find($id);
         $categories = Category::get();
-        return view('products.edit', compact('products','categories'));
+        return view('products.edit', compact('products', 'categories'));
     }
 
     /**
@@ -96,24 +104,24 @@ class ProductsController extends Controller
             $extension = $request->file($fieldName)->getClientOriginalExtension();
             $fileName = $fileNameOrigin . '-' . rand() . '_' . time() . '.' . $extension;
             $path = $request->file($fieldName)->storeAs('public/images', $fileName);
-        
+
             // Cập nhật đường dẫn ảnh mới vào sản phẩm
             $products->image_url = str_replace('public/', 'storage/', $path);
         }
-        
         $products->save();
-        
-      
-        $products->save();
+        $request->session()->flash('successMessage1', 'CẬP NHẬT THÀNH CÔNG!');
+
         return redirect()->route('product.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request,string $id)
     {
         $products = Product::destroy($id);
+        $request->session()->flash('successMessage2', 'XÓA THÀNH CÔNG!');
+
         return redirect()->route('product.index');
     }
 }

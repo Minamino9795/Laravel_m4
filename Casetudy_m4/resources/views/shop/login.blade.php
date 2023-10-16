@@ -1,8 +1,28 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.js"></script>
+    @if (session('successMessage'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: '<h6>{{ session('successMessage') }}</h6>',
+            showConfirmButton: false,
+            timer: 2000,
+            width: '300px',
+            customClass: {
+                popup: 'animated bounce',
+            },
+            background: '#f4f4f4',
+            iconColor: '#00a65a',
+        });
+    </script>
+@endif
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
@@ -70,15 +90,15 @@
                             <form method="POST" action="{{ route('shop.checklogin') }}">
                                 @csrf
                                 <div class="card-body">
-                                  <form role="form" class="text-start">
-                                    <div class="input-group input-group-outline my-3">
-                                      <label class="form-label">Email</label>
-                                      <input type="email" name="email" class="form-control">
-                                    </div>
-                                    <div class="input-group input-group-outline mb-3">
-                                      <label class="form-label">Password</label>
-                                      <input type="password" name="password" class="form-control">
-                                    </div>
+                                    <form role="form" class="text-start">
+                                        <div class="input-group input-group-outline my-3">
+                                            <label class="form-label">Email</label>
+                                            <input type="email" name="email" class="form-control">
+                                        </div>
+                                        <div class="input-group input-group-outline mb-3">
+                                            <label class="form-label">Password</label>
+                                            <input type="password" name="password" class="form-control">
+                                        </div>
                                         <div class="form-check form-switch d-flex align-items-center mb-3">
                                             <input class="form-check-input" type="checkbox" id="rememberMe" checked>
                                             <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember

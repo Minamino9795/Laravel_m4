@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Submit Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<form id="myForm">
+    <label for="inputData">Enter Data:</label>
+    <input type="text" id="inputData" name="data">
+    <button type="submit">Submit</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+    // Sử dụng Ajax khi form được submit
+    $('#myForm').submit(function(event) {
+        event.preventDefault(); // Ngừng hành động mặc định của form
+
+        // Lấy dữ liệu từ trường nhập liệu
+        var formData = $(this).serialize();
+
+        // Gửi yêu cầu POST đến máy chủ bằng Ajax
+        $.ajax({
+            url: 'https://jsonplaceholder.typicode.com/posts', // URL của API hoặc endpoint xử lý dữ liệu
+            type: 'POST', // Phương thức yêu cầu
+            data: formData, // Dữ liệu gửi đi từ form
+            success: function(response) {
+                // Hiển thị kết quả trả về từ máy chủ
+                $('#result').html('Data sent successfully! Response: ' + JSON.stringify(response));
+            },
+            error: function(error) {
+                // Hiển thị thông báo lỗi nếu yêu cầu thất bại
+                $('#result').html('Error occurred: ' + JSON.stringify(error));
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

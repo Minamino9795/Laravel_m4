@@ -1,0 +1,33 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<p id="demo"></p>
+<script>
+    // tạo dodis tượng XMLHttpRequest
+    // const xhttp = new XMLHttpRequest();
+    // // xủ lý trả về
+    // xhttp.onreadystatechange = function () {
+    //     // sau khi nhận phản hồi từ sever
+    //     if (this.readyState == 4 && this.status == 200) {
+    //         document.getElementById("demo").innerHTML =
+    //             this.responseText;
+    //     }
+    // };
+    // // Để gửi yêu cầu đến server
+    // // sử dụng các phương thức open () và
+    // // send () của đối tượng XMLHttpRequest
+    // xhttp.open("GET", "ajax_info.txt");
+    // // tiến hành gửi
+    // xhttp.send();
+    $.ajax({
+        method:"GET",
+        url:"ajax_info.txt",
+        data:{
+            _token:"123456",
+            name:"vu",
+            age:18
+        },
+        success:function(response){
+            $('#demo').html(response)
+        }
+    })
+
+</script>

@@ -3,7 +3,7 @@
 
 <body>
 
-    <h2>HTML Forms</h2>
+    <h2>CHỈNH SỬA SẢN PHẨM:</h2>
 
     <form action="{{route('product.update',$products->id)}}" method="POST" enctype="multipart/form-data">
         @csrf

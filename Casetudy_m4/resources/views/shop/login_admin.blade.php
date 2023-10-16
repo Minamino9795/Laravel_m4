@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,22 +34,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.js"></script>
     @if (session('errorMessage'))
-    <script>
-        Swal.fire({
-            icon: 'error',
-            html: '<h6>{{ session('errorMessage') }}</h6>',
-            showConfirmButton: false,
-            timer: 2000,
-            width: '300px',
-           
-            customClass: {
-                popup: 'animated bounce',
-            },
-            background: '#f4f4f4',
-            iconColor: '#ff0000', // Màu đỏ cho biểu tượng lỗi
-        });
-    </script>
-@endif
+        <script>
+            Swal.fire({
+                icon: 'error',
+                html: '<h6>{{ session('errorMessage') }}</h6>',
+                showConfirmButton: false,
+                timer: 2000,
+                width: '300px',
+
+                customClass: {
+                    popup: 'animated bounce',
+                },
+                background: '#f4f4f4',
+                iconColor: '#ff0000', // Màu đỏ cho biểu tượng lỗi
+            });
+        </script>
+    @endif
 
     <div class="container position-sticky z-index-sticky top-0">
         <div class="row">
@@ -94,22 +93,23 @@
                             <form method="POST" action="{{ route('shop.checkloginadmin') }}">
                                 @csrf
                                 <div class="card-body">
-                                  <form role="form" class="text-start">
-                                    <div class="input-group input-group-outline my-3">
-                                      <label class="form-label">Email</label>
-                                      <input type="email" name="email" class="form-control" required>
-                                    </div>
-                                    <div class="input-group input-group-outline mb-3">
-                                      <label class="form-label">Password</label>
-                                      <input type="password" name="password" class="form-control" required>
-                                    </div>
+                                    <form role="form" class="text-start">
+                                        <div class="input-group input-group-outline my-3">
+                                            <label class="form-label">Email</label>
+                                            <input type="email" name="email" class="form-control" required>
+                                        </div>
+                                        <div class="input-group input-group-outline mb-3">
+                                            <label class="form-label">Password</label>
+                                            <input type="password" name="password" class="form-control" required>
+                                        </div>
                                         <div class="form-check form-switch d-flex align-items-center mb-3">
                                             <input class="form-check-input" type="checkbox" id="rememberMe" checked>
                                             <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember
                                                 me</label>
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2" onclick="return $errorMessage">Sign
+                                            <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2"
+                                                onclick="return $errorMessage">Sign
                                                 in</button>
                                         </div>
                                         {{-- <p class="mt-4 text-sm text-center">

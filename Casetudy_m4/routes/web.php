@@ -49,6 +49,7 @@ Route::post('/login', [ShopController::class, 'checklogin'])->name('shop.checklo
 Route::get('/login', [ShopController::class, 'login'])->name('shop.login');
 Route::post('/logoutuser', [ShopController::class, 'checklogout'])->name('checklogout');
 Route::get('/logoutuser', [ShopController::class, 'checklogout']);
+Route::get('/orderview', [ShopController::class, 'orderview'])->name('orderview');
 
 
 // shop============

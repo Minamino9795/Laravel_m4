@@ -6,26 +6,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.1/dist/sweetalert2.min.js"></script>
     @if (session('successMessage1'))
-    <script>
-        Swal.fire({
-            icon: 'success',
-            title: '{{ session('successMessage1') }}',
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 2000, 
-            width: '300px', 
-            padding: '20px', 
-            background: '#ffffff', 
-            iconColor: '#00a65a',
-            customClass: {
-                popup: 'animated bounceInDown', 
-                title: 'text-center',
-            },
-            grow: 'row',
-            toast: true
-        });
-    </script>
-@endif
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: '{{ session('successMessage1') }}',
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 2000,
+                width: '300px',
+                padding: '20px',
+                background: '#ffffff',
+                iconColor: '#00a65a',
+                customClass: {
+                    popup: 'animated bounceInDown',
+                    title: 'text-center',
+                },
+                grow: 'row',
+                toast: true
+            });
+        </script>
+    @endif
 
 
 
@@ -75,14 +75,14 @@
                     @else
                         <span class="badge badge-danger">
                             <i class="fas fa-times-circle"></i> Out stock
-                           
+
                         </span>
-                        @endif
+                    @endif
                     </p>
-                    
+
                     <div>
                         <p class="font-family">
-                        {{ $products->quantity }} products available</p>
+                            {{ $products->quantity }} products available</p>
                     </div>
 
                     <div class="d-flex align-items-center mb-4 pt-2">
@@ -92,7 +92,7 @@
                                     <i class="fa fa-minus"></i>
                                 </button>
                             </div>
-                            
+
                             <input type="text" class="form-control bg-secondary border-0 text-center" value="1">
                             <div class="input-group-btn">
                                 <button class="btn btn-primary btn-plus">
@@ -100,18 +100,19 @@
                                 </button>
                             </div>
                         </div>
-                        
+
                         <div class="button-group">
                             <div>
                                 <a href="{{ route('shop.addtocart', $products->id) }}" id="{{ $products->id }}"
                                     class="btn btn-danger mt-20" onclick="return $successMessage1">Add to cart</a>
-                           
-                                <a href="{{ route('shop.addtocart', ['id' => $products->id, 'buynow' => true]) }}" class="btn btn-success">Buy now</a>
+
+                                <a href="{{ route('shop.addtocart', ['id' => $products->id, 'buynow' => true]) }}"
+                                    class="btn btn-success">Buy now</a>
                             </div>
                         </div>
-                        
+
                     </div>
-                    
+
                     <div class="d-flex pt-2">
                         <strong class="text-dark mr-2">Share on:</strong>
                         <div class="d-inline-flex">
@@ -151,7 +152,8 @@
                                         class="fa fa-shopping-cart"></i></a>
                                 <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
                                 <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
-                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i
+                                        class="fa fa-search"></i></a>
                             </div>
                         </div>
                         <div class="text-center py-4">

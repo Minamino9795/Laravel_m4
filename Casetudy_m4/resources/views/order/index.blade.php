@@ -1,19 +1,19 @@
 @extends('admin.master')
 @section('content')
-    <h1 class="offset-4">Đơn hàng</h1>
+    <h1 class="offset-4">ORDER</h1>
     <hr>
-    <td> <a style="width:50%" class="btn btn-warning" href="{{ route('xuat') }}">Xuất file excel </a> </td>
+    
     <table class="table table-bordered">
-        <thead>
+        <thead style="background: linear-gradient(to bottom, #a208c8 , #0768f1)">
             <tr>
-                <th scope="col">STT</th>
-                <th scope="col">Tên Khách Hàng</th>
-                <th scope="col">Email</th>
-                <th scope="col">Số Điện Thoại</th>
-                <th scope="col">Địa Chỉ</th>
-                <th scope="col">Ngày Đặt Hàng</th>
+                <th style="color: white" scope="col">#</th>
+                <th style="color: white" scope="col">Customer name</th>
+                <th style="color: white" scope="col">Email</th>
+                <th style="color: white" scope="col">Phone number</th>
+                <th style="color: white" scope="col">Address</th>
+                <th style="color: white" scope="col">Order date</th>
 
-                <th scope="col">Tùy Chọn</th>
+                <th style="color: white" scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -27,7 +27,7 @@
                     <td>{{ $item->date_at }}</td>
 
                     <td>
-                        <a class='btn btn-info' href="{{ route('order.detail', $item->id) }}">Chi tiết</a>
+                        <a class='btn btn-success' href="{{ route('order.detail', $item->id) }}">Detail</a>
                     </td>
                 </tr>
             @endforeach

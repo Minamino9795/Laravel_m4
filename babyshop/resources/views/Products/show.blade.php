@@ -10,7 +10,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-
+<h2>XEM CHI TIẾT SẢN PHẨM:</h2>
     <table border="1" class="table">
         <tr>
             <th>Mã sản phẩm</th>
@@ -39,3 +39,35 @@
   
 </body>
 </html>
+<style>
+    /* Định dạng cho bảng */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Khoảng cách giữa tiêu đề và bảng */
+}
+
+/* Định dạng cho tiêu đề bảng */
+.table th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Định dạng cho nội dung bảng */
+.table td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Định dạng cho hình ảnh */
+.table img {
+    max-width: 100px;
+    max-height: 90px;
+    display: block;
+    margin: 0 auto; /* Canh giữa ảnh trong ô */
+}
+
+</style>

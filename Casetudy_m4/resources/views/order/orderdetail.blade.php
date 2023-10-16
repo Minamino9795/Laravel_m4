@@ -1,17 +1,17 @@
 @extends('admin.master')
 @section('content')
 <div class="pagetitle">
-    <h1>Chi tiết đơn hàng</h1>
+    <h1>ORDER DETAIL</h1>
 
 </div>
 <table class="table table-bordered">
-    <thead>
+    <thead style="background: linear-gradient(to bottom, #a208c8 , #0768f1)">
         <tr>
-            <th scope="col">STT</th>
-            <th scope="col">Tên Sản Phẩm</th>
-            <th scope="col">GIá(Đồng)</th>
-            <th scope="col">Số Lượng</th>
-            <th scope="col">Tổng Tiền($)</th>
+            <th style="color: white" scope="col">#</th>
+            <th style="color: white" scope="col">Product's name</th>
+            <th style="color: white" scope="col">Price</th>
+            <th style="color: white" scope="col">Order id</th>
+            <th style="color: white" scope="col">Total Money</th>
         </tr>
     </thead>
     <tbody>
@@ -21,12 +21,12 @@
             <tr>
                 <th scope="row">{{ ++$key }}</th>
                 <td>{{ $item->name }}</td>
-                <td>{{ number_format($item->price) }}</td>
-                <td>{{ $item->quantity }}</td>
-                <td>{{ number_format($item->total) }}</td>
+                <td>{{ number_format($item->price) }} VNĐ</td>
+                <td>{{ $item->id }}</td>
+                <td>{{ number_format($item->total) }}VNĐ</td>
             </tr>
         @endforeach
     </tbody>
 </table>
-Tổng Tiền của đơn hàng: {{number_format($total)}} $
+Total amount of the order: {{number_format($total)}} $
 @endsection

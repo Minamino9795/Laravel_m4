@@ -75,8 +75,8 @@
                     <option value="vi" {{ session()->get('locale') == 'vi' ? 'selected' : '' }}>VI</option>
                 </select> --}}
            
-            <div>
-                <h2>{{ __('language.category') }}</h2>
+                <div class="panel-heading">
+                <h2 class="offset-4">{{ __('language.category') }}</h2>
             </div>
 
             <div class="card my-4">

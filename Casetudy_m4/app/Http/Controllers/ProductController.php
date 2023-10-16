@@ -14,6 +14,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+        $this->authorize('viewAny', Product::class);
         $query = Product::with('category');
 
         if (isset($request->search)) {
@@ -46,6 +47,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Product::class);
         $categories = Category::get();
         return view('Products.create', compact('categories'));
     }
@@ -92,6 +94,7 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
+        $this->authorize('update', Product::class);
         $products = Product::find($id);
         $categories = Category::get();
         return view('products.edit', compact('products', 'categories'));
@@ -102,6 +105,8 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, string $id)
     {
+        $this->authorize('update', Product::class);
+
         $products = Product::find($id);
         $products->name = $request->name;
         $products->slug = $request->slug;
@@ -135,6 +140,8 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
+        $this->authorize('delete', Product::class);
+
         $products = Product::onlyTrashed()->findOrFail($id);
         $products->forceDelete();
 
@@ -142,6 +149,8 @@ class ProductController extends Controller
     }
     public  function softdeletes($id)
     {
+        $this->authorize('delete', Product::class);
+
         date_default_timezone_set("Asia/Ho_Chi_Minh");
         $products = Product::findOrFail($id);
         $products->deleted_at = date("Y-m-d h:i:s");
@@ -150,12 +159,15 @@ class ProductController extends Controller
     }
     public  function trash()
     {
+        $this->authorize('viewtrash', Product::class);
+
         $products = Product::onlyTrashed()->get();
         $param = ['products' => $products];
         return view('products.trash', $param);
     }
     public function restoredelete($id)
     {
+        $this->authorize('restore', Product::class);
         $products = Product::withTrashed()->where('id', $id);
         $products->restore();
         return redirect()->route('product.trash')->with('successMessage3', 'Restore successfully');
