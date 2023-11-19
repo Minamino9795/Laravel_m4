@@ -1,5 +1,7 @@
 <?php
+
 return [
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
@@ -10,10 +12,12 @@ return [
     | as required, but they're a perfect start for most applications.
     |
     */
+
     'defaults' => [
         'guard' => 'web',
         'passwords' => 'users',
     ],
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -30,6 +34,7 @@ return [
     | Supported: "session"
     |
     */
+
     'guards' => [
         'web' => [
             'driver' => 'session',
@@ -39,11 +44,13 @@ return [
             'driver' => 'session',
             'provider' => 'customers',
         ],
-        'users' => [
-            'driver' => 'session',
-            'provider' => 'users',
+        'api' => [
+            'driver' => 'jwt',
+            'provider' => 'customers',
+            'hash' => false,
         ],
     ],
+
     /*
     |--------------------------------------------------------------------------
     | User Providers
@@ -60,6 +67,7 @@ return [
     | Supported: "database", "eloquent"
     |
     */
+
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
@@ -69,15 +77,13 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Customer::class,
         ],
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\User::class,
-        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
     ],
+
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords
@@ -87,15 +93,20 @@ return [
     | than one user table or model in the application and you want to have
     | separate password reset settings based on the specific user types.
     |
-    | The expire time is the number of minutes that each reset token will be
+    | The expiry time is the number of minutes that each reset token will be
     | considered valid. This security feature keeps tokens short-lived so
     | they have less time to be guessed. You may change this as needed.
     |
+    | The throttle setting is the number of seconds a user must wait before
+    | generating more password reset tokens. This prevents the user from
+    | quickly generating a very large amount of password reset tokens.
+    |
     */
+
     'passwords' => [
         'users' => [
             'provider' => 'users',
-            'table' => 'password_resets',
+            'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,
         ],
@@ -106,6 +117,7 @@ return [
             'throttle' => 60,
         ],
     ],
+
     /*
     |--------------------------------------------------------------------------
     | Password Confirmation Timeout
@@ -116,5 +128,7 @@ return [
     | confirmation screen. By default, the timeout lasts for three hours.
     |
     */
+
     'password_timeout' => 10800,
+
 ];

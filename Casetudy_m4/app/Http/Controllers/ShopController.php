@@ -57,6 +57,11 @@ class ShopController extends Controller
             'password' => $request->password
         ];
         if (Auth::guard('customers')->attempt($arr)) {
+
+            $user = Auth::guard('customers')->user();
+            $userName = $user->name;
+            $request->session()->put('userName', $userName);
+            
             return redirect()->route('shop.index')->with('successMessage', 'Login Success');
         } else {
             return redirect()->route('shop.login');

@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('viewAny', Product::class);
+        // $this->authorize('viewAny', Product::class);
         $query = Product::with('category');
 
         if (isset($request->search)) {
@@ -23,23 +23,15 @@ class ProductController extends Controller
         }
 
         // Sắp xếp theo trường created_at giảm dần
-        $products = $query->orderBy('id', 'desc')->paginate(3);
+        $products = $query->orderBy('id', 'desc')->paginate(15);
 
 
 
         // dd($products);
 
-        // $successMessage = '';
-        // if ($request->session()->has('successMessage')) {
-        //     $successMessage = $request->session()->get('successMessage');
-        // } elseif ($request->session()->has('successMessage1')) {
-        //     $successMessage = $request->session()->get('successMessage1');
-        // } elseif ($request->session()->has('successMessage2')) {
-        //     $successMessage = $request->session()->get('successMessage2');
-        // } elseif ($request->session()->has('successMessage3')) {
-        //     $successMessage = $request->session()->get('successMessage3');
-        // }
+       
         return view('Products.index', compact('products'));
+     
     }
 
     /**

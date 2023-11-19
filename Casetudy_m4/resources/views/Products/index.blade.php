@@ -51,7 +51,7 @@
                     icon: 'success',
                     title: '<h6>{{ session('successMessage2') }}</h6>',
                     showConfirmButton: false,
-                    timer: 2000,
+                    timer: 1500,
                     width: '300px',
                     customClass: {
                         popup: 'animated bounce',

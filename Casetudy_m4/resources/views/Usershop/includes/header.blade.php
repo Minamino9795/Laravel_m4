@@ -47,6 +47,8 @@
                         </form>
                     </div>
                 </div>
+                <span class="badge">@if(session('userName')) {{ session('userName') }} @endif
+                </span>
             </div>
             <div class="d-inline-flex align-items-center d-block d-lg-none">
                 <a href="" class="btn px-0 ml-2">
@@ -86,5 +88,6 @@
             <p class="m-0">Mr.Dương Đình Nghĩa</p>
             <h5 class="m-0">(+84) 37 4180 497</h5>
         </div>
+       
     </div>
 </div>

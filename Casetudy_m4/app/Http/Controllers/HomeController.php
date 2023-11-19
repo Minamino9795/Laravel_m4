@@ -31,5 +31,7 @@ class HomeController extends Controller
             ->limit(4) // Giới hạn số lượng sản phẩm hiển thị
             ->get();
         return view('Home.detail', compact('products', 'relatedProducts'));
+  
     }
-}
+    }
+
